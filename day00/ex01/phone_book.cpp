@@ -16,28 +16,37 @@ void    add_contact(void) {
     std::cout << "Please enter your contact's information" << std::endl;
     std::cout << "First name :" << std::endl;
     std::cin >> buf;
-    contact.setFirst(std::cin);
+    contact.setFirst(buf);
     std::cout << "Last name: :" << std::endl;
     std::cin >> buf;
-    contact.setFirst(buf);
+    contact.setLast(buf);
     std::cout << "Nickname :" << std::endl;
     std::cin >> buf;
-    contact.setFirst(buf);
+    contact.setNick(buf);
     std::cout << "Login :" << std::endl;
     std::cin >> buf;
-    contact.setFirst(buf);
+    contact.setLogin(buf);
     std::cout << "Postal address :" << std::endl;
     std::cin >> buf;
-    contact.setFirst(buf);
+    contact.setPostal(buf);
     std::cout << "Email address :" << std::endl;
     std::cin >> buf;
-    contact.setFirst(buf);
+    contact.setEmail(buf);
     std::cout << "Phone number :" << std::endl;
+     std::cin >> buf;
+    contact.setPhone(buf);   
     std::cout << "Birthday (dd/mm/yyyy) :" << std::endl;
+    std::cin >> buf;
+    contact.setBday(buf);
     std::cout << "Favorite meal :" << std::endl;
+    std::cin >> buf;
+    contact.setFavMeal(buf);
     std::cout << "Underwear color :" << std::endl;
+    std::cin >> buf;
+    contact.setUnder(buf);
     std::cout << "Darkest secret :" << std::endl;
-
+    std::cin >> buf;
+    contact.setSecret(buf);
 
     std::cout << "Number of instances : " << Contact::getNbInst() << std::endl;
 
