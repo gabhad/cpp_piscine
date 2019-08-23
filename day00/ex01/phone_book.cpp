@@ -4,6 +4,45 @@
 // creer fonction ADD_VALUE
 // creer fonction SEARCH
 
+
+void    add_contact(void) {
+    char    buf[512];
+    if (Contact::getNbInst() == 8) {
+        std::cout << "Sorry, your phone book is full, you cannot add any more contact." << std::endl;
+        return;
+    }
+    Contact contact;
+
+    std::cout << "Please enter your contact's information" << std::endl;
+    std::cout << "First name :" << std::endl;
+    std::cin >> buf;
+    contact.setFirst(std::cin);
+    std::cout << "Last name: :" << std::endl;
+    std::cin >> buf;
+    contact.setFirst(buf);
+    std::cout << "Nickname :" << std::endl;
+    std::cin >> buf;
+    contact.setFirst(buf);
+    std::cout << "Login :" << std::endl;
+    std::cin >> buf;
+    contact.setFirst(buf);
+    std::cout << "Postal address :" << std::endl;
+    std::cin >> buf;
+    contact.setFirst(buf);
+    std::cout << "Email address :" << std::endl;
+    std::cin >> buf;
+    contact.setFirst(buf);
+    std::cout << "Phone number :" << std::endl;
+    std::cout << "Birthday (dd/mm/yyyy) :" << std::endl;
+    std::cout << "Favorite meal :" << std::endl;
+    std::cout << "Underwear color :" << std::endl;
+    std::cout << "Darkest secret :" << std::endl;
+
+
+    std::cout << "Number of instances : " << Contact::getNbInst() << std::endl;
+
+}
+
 void    input() {
     char    buffer[512];
     std::string add ("ADD");
@@ -12,20 +51,16 @@ void    input() {
 
     std::cin >> buffer;
 
-    // si add : nouvelle entree dans la limite de la static : cf sample 8
     // si search : nouveau compare 
-    // si exit : on return
-    // si autre : nouvelle commande
     if (!add.compare(buffer)) {
-        std::cout << "toto" << std::endl;
-        //add_value(); 
+        add_contact(); 
     }
     else if (!search.compare(buffer)) {
         std::cout << "tata" << std::endl;
         
         //search();
     }
-    
+
     else if (!exit.compare(buffer))
         return ;
 
