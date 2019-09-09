@@ -4,17 +4,17 @@
 class Contact {
 
     private:
-        char        _first_name[16];
-        char        _last_name[32];
-        char        _nickname[16];
-        char        _login[8];
-        char        _postal[128];
-        char        _email[64];
-        char        _phone[16];
-        char        _birthday[11];
-        char        _fav_meal[32];
-        char        _underwear[16];
-        char        _secret[128];
+        char        *_first_name;
+        char        *_last_name;
+        char        *_nickname;
+        char        *_login;
+        char        *_postal;
+        char        *_email;
+        char        *_phone;
+        char        *_birthday;
+        char        *_fav_meal;
+        char        *_underwear;
+        char        *_secret;
 
         static int     _nbInst;
             
@@ -32,7 +32,19 @@ class Contact {
         void    setBday(char *bday);  
         void    setFavMeal(char *favMeal);
         void    setUnder(char *under);  
-        void    setSecret(char *secret);  
+        void    setSecret(char *secret);
+
+        char    *getFirst(void);
+        char    *getLast(void);
+        char    *getNick(void);
+        char    *getLogin(void);
+        char    *getPostal(void);
+        char    *getEmail(void);
+        char    *getPhone(void);
+        char    *getBday(void);
+        char    *getFavMeal(void);
+        char    *getUnder(void);
+        char    *getSecret(void);
 
         static int    getNbInst(void);
 

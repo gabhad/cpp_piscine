@@ -2,13 +2,11 @@
 #include "contact.class.hpp"
 
 Contact::Contact(void) {
-    std::cout << "Constructor called" << std::endl;
     Contact::_nbInst += 1;
     return;
 }
 
 Contact::~Contact(void) {
-    std::cout << "Destructor called" << std::endl;
     return;
 }
 
@@ -48,6 +46,40 @@ void    Contact::setUnder(char *under) {
 }
 void    Contact::setSecret(char *secret) {
     this->_secret = secret;
+}
+
+char    *Contact::getFirst() {
+    return this->_first_name;
+}
+char    *Contact::getLast() {
+    return this->_last_name;
+}
+char    *Contact::getNick() {
+    return this->_nickname;
+}
+char    *Contact::getLogin() {
+    return this->_login;
+}
+char    *Contact::getPostal() {
+    return this->_postal;
+}
+char    *Contact::getEmail() {
+    return this->_email;
+}
+char    *Contact::getPhone() {
+    return this->_phone;
+}
+char    *Contact::getBday() {
+    return this->_birthday;
+}
+char    *Contact::getFavMeal() {
+    return this->_fav_meal;
+}
+char    *Contact::getUnder() {
+    return this->_underwear;
+}
+char    *Contact::getSecret() {
+    return this->_secret;
 }
 
 int     Contact::_nbInst = 0;
