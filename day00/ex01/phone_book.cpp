@@ -1,34 +1,43 @@
 #include "contact.class.hpp"
 #include "iostream"
 
-// creer fonction ADD_VALUE
 // creer fonction SEARCH
 
-void    search_contacts(void) {
-    if (Contact::getNbInst() == 0) {
-        std::cout << "Sorry, there are no contacts to show. Please add contacts first, or exit." << std::endl;
-        return;
-    }
-  //  std::cout << list[0]::getFirst() << std::endl;
+int     ft_strlen(char *str) {
+    int i;
+
+    i = 0;
+    while (str[i])
+        i++;
+    return (i);
 }
 
-void    add_contact(void) {
-    char    buf[512];
-    int     i;
+void    print_next_contact(Contact contact, int i) {
+    int len;
+    int n;
 
-    i = Contact::getNbInst();
-    std::cout << "i = " << i << std::endl;    
-    if (i == 8) {
-        std::cout << "Sorry, your phone book is full, you cannot add any more contact." << std::endl;
-        return;
+    std::cout << "         " << i << "|";
+    if ((len = ft_strlen(contact.getFirst())) < 11) {
+        std::cout << "len = " << len;
+        n = 0;
+        while (n < (len - 10))
+            std::cout << " ";
+        std::cout << contact.getFirst() << "|";
     }
-    Contact contact;
+}
+
+void    search_contacts(Contact *contacts) {
+    (void) contacts;
+}
+
+Contact    add_contact(Contact contact) {
+    char    buf[512];
 
     std::cout << "Please enter your contact's information" << std::endl;
     std::cout << "First name : ";
     std::cin >> buf;
     contact.setFirst(buf);
-    std::cout << "Last name: : ";
+/*     std::cout << "Last name: : ";
     std::cin >> buf;
     contact.setLast(buf);
     std::cout << "Nickname : ";
@@ -58,16 +67,18 @@ void    add_contact(void) {
     std::cout << "Darkest secret : ";
     std::cin >> buf;
     contact.setSecret(buf);
-    std::cout << "Contact saved. What else can I do for you ?" << std::endl;
-    return ;
-
-    std::cout << "Number of instances : " << Contact::getNbInst() << std::endl;
-
+ */    std::cout << "Contact saved. What else can I do for you ?" << std::endl;
+    return contact;
 }
 
 void    input() {
     char    buffer[512];
- //   Contact contacts[8];
+    Contact contacts[8];
+    Contact temp;
+    static int     i = 0;
+    int     n;
+
+    n = 0;
     std::string add ("ADD");
     std::string search ("SEARCH");
     std::string exit ("EXIT");
@@ -75,10 +86,33 @@ void    input() {
     std::cin >> buffer;
 
     if (!add.compare(buffer)) {
-        add_contact(); 
+        std::cout << "i = " << i << std::endl;
+        if (i > 7) {
+            std::cout << "Sorry, your phone book is full, you cannot add any more contact." << std::endl;
+            std::cout << "What else can I do for you ?" << std::endl;
+            }
+        else {
+            std::cout << "name = " << contacts[0].getFirst() << std::endl;            
+            contacts[0] = add_contact(temp);
+            std::cout << "name = " << contacts[0].getFirst() << std::endl;
+            i++;
+        }
     }
+
     else if (!search.compare(buffer)) {
-        search_contacts();
+        if (i == 0)
+            std::cout << "Sorry, there are no contacts to show. Please add contacts first, or exit." << std::endl;
+        else
+        {
+            std::cout << "     index| firstname|  lastname|  nickname" << std::endl;
+            std::cout << "toto" << std::endl;
+            std::cout << "Contact numero " << n << " first name = " << contacts[n].getFirst() << std::endl;
+/*             while (n < i) {
+                print_next_contact(contacts[n], n);
+                n++;
+            } */
+        }
+            search_contacts(contacts);
     }
 
     else if (!exit.compare(buffer))
