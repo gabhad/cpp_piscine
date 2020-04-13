@@ -48,6 +48,7 @@ class   Contact {
         std::string     getUnderwear_color(void) const;
         std::string     getsecret(void) const;
 
+        void            display_contact(void) const;
 };
 
 #endif

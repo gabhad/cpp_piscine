@@ -40,5 +40,19 @@ void    Phonebook::add_contact(void)
 
 void    Phonebook::search_contact(void)
 {
+    int     i = 0;
 
+    if (!this->_nb_of_contacts)
+    {
+        std::cout << "There are currently no contacts to display." << std::endl;
+        return;
+    }
+    std::cout << "        id|first_name| last_name|  nickname|" << std::endl;
+    while (i < this->_nb_of_contacts)
+    {
+        std::cout << "name = " << this->_contact[i]->getFirst_name() << std::endl;
+        /* std::cout << "         " << i << "|";
+        this->_contact[i]->display_contact();*/
+        i++;
+    }
 }

@@ -1,6 +1,6 @@
 #include "includes.hpp"
 
-static void     get_string(Phonebook *book)
+static int     get_string(Phonebook *book)
 {
     std::string     input;
     
@@ -9,20 +9,22 @@ static void     get_string(Phonebook *book)
     std::getline(std::cin,input);
 
     if (!input.compare("EXIT") || !input.compare("exit"))
-        return;
+        return 0;
     else if (!input.compare("ADD") || !input.compare("add"))
         book->add_contact();
     else if (!input.compare("SEARCH") || !input.compare("search"))
         book->search_contact();
     else
         std::cout << "Sorry, i didn't understand, can you please repeat ?" << std::endl;
-    get_string(book);
+    std::cout << "In your phonebook, " << book->_contact[0]->getFirst_name() << "is present.\n";
+    return 1;
 }
 
 int             main(void)
 {
     Phonebook   book;
-    get_string(&book);
+    while (get_string(&book))
+        ;
     std::cout << "Thank you for your time. Have a good day!" << std::endl;
     return (0);
 }

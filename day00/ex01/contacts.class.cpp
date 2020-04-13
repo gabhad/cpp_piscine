@@ -237,3 +237,28 @@ std::string     Contact::getsecret(void) const
 {
     return (this->_secret);
 }
+
+void            Contact::display_contact(void) const
+{
+    if (this->getFirst_name().length() > 9)
+        std::cout << this->getFirst_name().substr(0,9) << ".|";
+    else
+    {
+        std::cout << std::setfill (' ') << std::setw (10);
+        std::cout << this->getFirst_name() << "|";
+    }
+    if (this->getLast_name().length() > 9)
+        std::cout << this->getLast_name().substr(0,9) << ".|";
+    else
+    {
+        std::cout << std::setfill (' ') << std::setw (10);
+        std::cout << this->getLast_name() << "|";
+    }
+    if (this->getNickname().length() > 9)
+        std::cout << this->getNickname().substr(0,9) << ".|" << std::endl;
+    else
+    {
+        std::cout << std::setfill (' ') << std::setw (10);
+        std::cout << this->getNickname() << "|" << std::endl;
+    }
+}
