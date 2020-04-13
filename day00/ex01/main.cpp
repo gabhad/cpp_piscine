@@ -16,7 +16,6 @@ static int     get_string(Phonebook *book)
         book->search_contact();
     else
         std::cout << "Sorry, i didn't understand, can you please repeat ?" << std::endl;
-    std::cout << "In your phonebook, " << book->_contact[0]->getFirst_name() << "is present.\n";
     return 1;
 }
 

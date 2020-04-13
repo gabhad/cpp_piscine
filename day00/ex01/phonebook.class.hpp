@@ -6,7 +6,7 @@
 class Phonebook
 {
 public:
-    Contact     *_contact[8];
+    Contact     _contact[8];
     int         _nb_of_contacts;
 
 public:
@@ -15,6 +15,8 @@ public:
 
     void    add_contact(void);
     void    search_contact(void);
+
+    int     getNb_of_contacts(void) const;
 };
 
 

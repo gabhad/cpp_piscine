@@ -3,18 +3,6 @@
 Contact::Contact(void)
 {
     std::cout << "**CONTACT CREATED**" << std::endl;
-    std::cout << "Please enter your contact's info below." << std::endl;
-    this->setFirst_name();
-    this->setLast_name();
-    this->setNickname();
-    this->setLogin();
-    this->setPostal_address();
-    this->setEmail_address();
-    this->setPhone_number();
-    this->setBday();
-    this->setFav_meal();
-    this->setUnderwear_color();
-    this->setSecret();
     return;
 }
 
@@ -261,4 +249,9 @@ void            Contact::display_contact(void) const
         std::cout << std::setfill (' ') << std::setw (10);
         std::cout << this->getNickname() << "|" << std::endl;
     }
+}
+
+void            Contact::show_contact(void) const
+{
+
 }

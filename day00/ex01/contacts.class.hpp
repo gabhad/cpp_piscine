@@ -49,6 +49,7 @@ class   Contact {
         std::string     getsecret(void) const;
 
         void            display_contact(void) const;
+        void            show_contact(void) const;
 };
 
 #endif
