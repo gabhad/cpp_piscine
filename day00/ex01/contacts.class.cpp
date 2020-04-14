@@ -2,13 +2,11 @@
 
 Contact::Contact(void)
 {
-    std::cout << "**CONTACT CREATED**" << std::endl;
     return;
 }
 
 Contact::~Contact(void)
 {
-    std::cout << "**CONTACT DESTROYED**" << std::endl;
     return;
 }
 
@@ -253,5 +251,17 @@ void            Contact::display_contact(void) const
 
 void            Contact::show_contact(void) const
 {
-
+    std::cout << "Here are your contact's informations";
+    std::cout << "\nFirst name: " << this->getFirst_name();
+    std::cout << "\nLast name: " << this->getLast_name();
+    std::cout << "\nNickname: " << this->getNickname();
+    std::cout << "\nLogin: " << this->getLogin();
+    std::cout << "\nPostal address: " << this->getPostal_address();
+    std::cout << "\nEmail address: " << this->getEmail_address();
+    std::cout << "\nPhone number: " << this->getPhone_number();
+    std::cout << "\nBirthday: " << this->getBday();
+    std::cout << "\nFavorite meal: " << this->getFav_meal();
+    std::cout << "\nUnderwear color: " << this->getUnderwear_color();
+    std::cout << "\nDarkest secret: " << this->getsecret();
+    std::cout << '\n' << std::endl;
 }

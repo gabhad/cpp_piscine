@@ -22,6 +22,8 @@ static int     get_string(Phonebook *book)
 int             main(void)
 {
     Phonebook   book;
+
+    std::cout << "Welcome to your Phonebook." << std::endl;
     while (get_string(&book))
         ;
     std::cout << "Thank you for your time. Have a good day!" << std::endl;
