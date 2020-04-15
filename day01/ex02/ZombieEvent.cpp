@@ -1,8 +1,7 @@
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 
-ZombieEvent::ZombieEvent(std::string type) :
-            _type(type)
+ZombieEvent::ZombieEvent(void)
 {
     std::cout << "Zombie event created" << std::endl;
 }
@@ -12,14 +11,21 @@ ZombieEvent::~ZombieEvent()
     std::cout << "Zombie event destructed" << std::endl;
 }
 
-std::string     ZombieEvent::setZombieType(void)
+void     ZombieEvent::setZombieType(std::string type)
 {
-    return this->_type;
+    this->_type = type;
 }
 
 Zombie          *ZombieEvent::newZombie(std::string name)
 {
+    
     Zombie  *zombie = new Zombie(name, this->_type);
 
     return zombie;
+}
+
+Zombie          ZombieEvent::createZombie(std::string name)
+{
+    Zombie  zombie(name, this->_type);
+    return  zombie;
 }

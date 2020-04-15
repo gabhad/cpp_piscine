@@ -12,11 +12,12 @@ private:
     std::string     _type;
 
 public:
-    ZombieEvent(std::string type);
-    ~ZombieEvent();
+    ZombieEvent(void);
+    ~ZombieEvent(void);
     
-    std::string     setZombieType(void);
+    void            setZombieType(std::string type);
     Zombie          *newZombie(std::string name);
+    Zombie          createZombie(std::string name);
 };
 
 #endif

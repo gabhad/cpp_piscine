@@ -7,17 +7,27 @@ void    randomChump(ZombieEvent *event)
                         "Jean-Michel", "Jean-Eudes", "Jean-Mouloud",
                         "Abdelkader", "Moïse", "Apu"};
     
-    Zombie *zombie = event->newZombie(names[rand() %10]);
+    event->setZombieType("Heaper");
+    Zombie  *zombie = event->newZombie(names[rand() %10]);
+    
     zombie->announce();
     delete zombie;
 }
 
+void    stack_zombie(ZombieEvent *event)
+{
+    event->setZombieType("Stacker");
+    Zombie  zombie = event->createZombie("Jean-Michel Zombie");
+    zombie.announce();
+}
+
 int     main(void)
 {
-    ZombieEvent *event = new ZombieEvent("BrainEaters");
+    ZombieEvent *event = new ZombieEvent();
     
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 5; i++)
         randomChump(event);
+    stack_zombie(event);
     delete event;
     return 0;
 }
