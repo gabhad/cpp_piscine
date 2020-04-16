@@ -1,8 +1,7 @@
 #include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#include "ZombieHorde.hpp"
 
-Zombie::Zombie(std::string name, std::string type) :
-                _name(name), _type(type)
+Zombie::Zombie(std::string name) : _name(name)
 {
     std::cout << "Zombie created" << std::endl;
 }
@@ -19,8 +18,7 @@ Zombie::~Zombie()
 
 void    Zombie::announce(void) const
 {
-    std::cout << "<" << this->_name << " (";
-    std::cout << this->_type << ")> Braiiiiiiiiiiiiiins..." << std::endl;
+    std::cout << "<" << this->_name << "> Braiiiiiiiiiiiiiins..." << std::endl;
 }
 
 void     Zombie::setName(std::string name)
