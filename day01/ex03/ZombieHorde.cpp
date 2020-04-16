@@ -2,6 +2,7 @@
 
 ZombieHorde::ZombieHorde(int n)
 {
+    std::cout << "Horde arriving!" << std::endl;
     std::string     names[10] = {"Jason", "Bryan", "Kevin", "Dylan", 
                         "Jean-Michel", "Jean-Eudes", "Jean-Mouloud",
                         "Abdelkader", "Moïse", "Apu"};
@@ -17,4 +18,5 @@ ZombieHorde::ZombieHorde(int n)
 ZombieHorde::~ZombieHorde()
 {
     delete [] this->_zombie;
+    std::cout << "Horde exterminated." << std::endl;
 }
