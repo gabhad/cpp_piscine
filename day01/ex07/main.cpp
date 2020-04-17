@@ -34,6 +34,7 @@ int             main(int argc, char **argv)
 
     // Write to output
     ofs.open(filename);
+    ofs << final;
     ofs.close();
     return 0;
 }
