@@ -1,31 +1,54 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include "replace.hpp"
 
-void    fileclosed(void)
+/* std::ofstream    write_output(std::string inp)
 {
-    std::cout << "I am sorry but I cannot find the file you are asking. Make sure you wrote the good file name and try again." << std::endl;
-    exit(0);
+    std::ofstream    output;
+
+    return output;
+}*/
+
+/* std::string     string_replace(std::string string, std::string s1, std::string s2)
+{
+   // int     n = 0;
+    //int     i = 0;
+    // Count occurrences of s1 in string
+    return ("toto");
+
+} */
+
+std::string     strtoupper(std::string input)
+{
+    std::string output = input;
+    int         i = -1;
+
+    while (output[i++])
+        output[i] = toupper(output[i]);
+    return output;
 }
 
-void    usage(void)
-{
-    std::cout << "usage: replace [filename][s1][s2]\n";
-    std::cout << "\t The program replaces every occurrence of s1 in the designated file with s2, and writes it to a new file." << std::endl;
-    exit(0);
-}
-
-int     main(int argc, char **argv)
+int             main(int argc, char **argv)
 {
     std::ifstream   ifs(argv[1]);
-    std::ofstream   ofs;
     std::string     buffer;
+    std::string     filename;
+    std::ofstream   ofs;
 
+    // Error handling
     if (argc != 4)
         usage();
-    //ifs.open();
-    if (!ifs.is_open())
+    else if (!ifs.is_open())
         fileclosed();
-    ifs.close();
+    
+    // Get file content and modify it
+    ifs >> buffer;
+ //   buffer = string_replace(buffer, argv[2], argv[3]);
+
+    // Get filename
+    filename = strtoupper(argv[1]);
+    filename.append(".replace");
+
+    // Write to output
+    //ofs.open(filename);
+    //ofs.close();
     return 0;
 }
