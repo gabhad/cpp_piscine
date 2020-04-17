@@ -7,29 +7,12 @@
     return output;
 }*/
 
-/* std::string     string_replace(std::string string, std::string s1, std::string s2)
-{
-   // int     n = 0;
-    //int     i = 0;
-    // Count occurrences of s1 in string
-    return ("toto");
-
-} */
-
-std::string     strtoupper(std::string input)
-{
-    std::string output = input;
-    int         i = -1;
-
-    while (output[i++])
-        output[i] = toupper(output[i]);
-    return output;
-}
-
 int             main(int argc, char **argv)
 {
     std::ifstream   ifs(argv[1]);
     std::string     buffer;
+    std::string     input;
+    std::string     final;
     std::string     filename;
     std::ofstream   ofs;
 
@@ -40,15 +23,17 @@ int             main(int argc, char **argv)
         fileclosed();
     
     // Get file content and modify it
-    ifs >> buffer;
- //   buffer = string_replace(buffer, argv[2], argv[3]);
+    while (std::getline(ifs, buffer))
+        input.append(buffer);
+    final = string_replace(input, argv[2], argv[3]);
+    std::cout << final << std::endl;
 
     // Get filename
     filename = strtoupper(argv[1]);
     filename.append(".replace");
 
     // Write to output
-    //ofs.open(filename);
-    //ofs.close();
+    ofs.open(filename);
+    ofs.close();
     return 0;
 }

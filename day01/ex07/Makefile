@@ -4,7 +4,8 @@ CC =			clang++
 CFLAGS =		-Wall -Wextra -Werror
 
 SRC_NAME =		main.cpp \
-				error_cases.cpp
+				error_cases.cpp \
+				string_management.cpp
 
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
 
