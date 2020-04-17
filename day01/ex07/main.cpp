@@ -10,8 +10,6 @@
 int             main(int argc, char **argv)
 {
     std::ifstream   ifs(argv[1]);
-    std::string     buffer;
-    std::string     input;
     std::string     final;
     std::string     filename;
     std::ofstream   ofs;
@@ -22,12 +20,17 @@ int             main(int argc, char **argv)
     else if (!ifs.is_open())
         fileclosed();
     
-    // Get file content and modify it
-    while (std::getline(ifs, buffer))
-        input.append(buffer);
-    final = string_replace(input, argv[2], argv[3]);
-    std::cout << final << std::endl;
+    // Get length of string
+    ifs.seekg (0, ifs.end);
+    int length = ifs.tellg();
+    ifs.seekg (0, ifs.beg);
+    char *buffer = new char[length];
 
+    // Read and replace
+    ifs.read (buffer,length);
+    ifs.close();
+    final = string_replace(buffer, argv[2], argv[3]);
+    
     // Get filename
     filename = strtoupper(argv[1]);
     filename.append(".replace");
