@@ -1,5 +1,7 @@
 #include "Logger.hpp"
 
+#include <fstream>
+
 Logger::Logger(std::string filename) : _fileName(filename)
 {
 }
@@ -10,17 +12,31 @@ Logger::~Logger()
 
 void        Logger::logToConsole(std::string const &log)
 {
-    std::cout << log << std::endl;
+    std::cout << log;
 }
 
 void        Logger::logToFile(std::string const &log)
 {
-    std::cout << log << std::endl;
+    std::ofstream   ofs;
+
+    ofs.open(this->_fileName, std::ios_base::app);
+    ofs << log; 
 }
 
 std::string Logger::makeLogEntry(std::string const &log)
 {
-    return log;
+    time_t          rawtime;
+    struct tm       *timeinfo;
+    char            buffer [18];
+    std::string     final = log;
+
+    time (&rawtime);
+    timeinfo = localtime (&rawtime);
+
+    strftime (buffer,18,"[%Y%m%d_%H%M%S] ",timeinfo);
+    final.insert(0, buffer);
+    final.append("\n");    
+    return final;
 }
 
 void        Logger::log(std::string const & dest, std::string const & message)
@@ -33,12 +49,12 @@ void        Logger::log(std::string const & dest, std::string const & message)
                     "logToFile" };
     int         i = 0;
     std::string str = message;
-    makeLogEntry(str);
+    str = makeLogEntry(str);
     while (i < 2)
     {
         if (dest == func[i])
         {
-            (this->*ptr[i])(message);
+            (this->*ptr[i])(str);
             return;
         }
         i++;
