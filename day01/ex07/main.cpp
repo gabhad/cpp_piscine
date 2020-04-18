@@ -1,12 +1,5 @@
 #include "replace.hpp"
 
-/* std::ofstream    write_output(std::string inp)
-{
-    std::ofstream    output;
-
-    return output;
-}*/
-
 int             main(int argc, char **argv)
 {
     std::ifstream   ifs(argv[1]);
