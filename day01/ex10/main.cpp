@@ -1,4 +1,5 @@
-#include "includes.hpp"
+#include <iostream>
+#include <fstream>
 
 void    usage(void)
 {
@@ -18,7 +19,7 @@ int     main(int argc, char **argv)
         std::ifstream   ifs(argv[i]);
         if (ifs.is_open())
         {
-            // Write and empty buffer
+            // Write and empty temp
             std::cout << temp;
             temp = "";
 
@@ -29,7 +30,7 @@ int     main(int argc, char **argv)
             char *buffer = new char[length];
 
             // Read and replace
-            ifs.read (buffer,length);
+            ifs.get (buffer,length+1);
             std::cout << buffer;
             ifs.close();
         }
