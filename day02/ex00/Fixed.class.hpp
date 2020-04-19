@@ -8,7 +8,7 @@ class Fixed
 private:
     int                 _value;
 
-    static const int    _NB_FRAC_BITS = 8;
+    static const int    _NB_FRAC_BITS;
     
 public:
     Fixed();

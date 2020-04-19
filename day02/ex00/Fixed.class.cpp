@@ -13,12 +13,12 @@ Fixed::Fixed(Fixed const & src)
 
 Fixed::~Fixed()
 {
-    std::cout << "Default destructor called" << std::endl;
+    std::cout << "Destructor called" << std::endl;
 }
 
 int     Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member funciton called" << std::endl;
+    std::cout << "getRawBits member function called" << std::endl;
     return this->_value;
 }
 
@@ -34,3 +34,5 @@ Fixed   &Fixed::operator=(Fixed const &rhs)
         this->_value = rhs.getRawBits();
     return *this;
 }
+
+const int   Fixed::_NB_FRAC_BITS = 8;
