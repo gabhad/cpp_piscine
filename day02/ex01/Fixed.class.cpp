@@ -5,12 +5,12 @@ Fixed::Fixed() : _value(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int n)
+Fixed::Fixed(const int n) : _value(n << Fixed::_NB_FRAC_BITS)
 {
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float n)
+Fixed::Fixed(const float n) : _value(roundf(n * (1 << Fixed::_NB_FRAC_BITS)))
 {
     std::cout << "Float constructor called" << std::endl;
 }
@@ -38,12 +38,15 @@ void    Fixed::setRawBits(int const raw)
 
 float   Fixed::toFloat(void) const
 {
-    return 0;
+    return float(this->_value) / (1 << Fixed::_NB_FRAC_BITS);
 }
 
 int     Fixed::toInt(void) const
 {
-    return roundf(this->_value);
+    int     nb;
+    
+    nb = this->_value >> Fixed::_NB_FRAC_BITS;
+    return nb;
 }
     
 Fixed   &Fixed::operator=(Fixed const &rhs)
