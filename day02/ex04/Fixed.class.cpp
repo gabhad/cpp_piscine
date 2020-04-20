@@ -129,6 +129,7 @@ Fixed           &Fixed::operator--(void)
 Fixed           Fixed::operator++(int i)
 {
     Fixed   copy = *this;
+    (void)i;
     this->_value +=1;
     return copy;
 }
@@ -136,6 +137,7 @@ Fixed           Fixed::operator++(int i)
 Fixed           Fixed::operator--(int i)
 {
     Fixed   copy = *this;
+    (void)i;
     this->_value -= 1;
     return copy;
 }
