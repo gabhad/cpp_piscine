@@ -15,6 +15,7 @@ public:
     Sentence(void);
     ~Sentence();
 
+    void            setWord(std::string word);
     std::string     getWord(void) const;
     void            setNext(Sentence *next);
     Sentence        *getNext(void) const;
@@ -22,6 +23,10 @@ public:
     std::string     getSentence(void) const;
 
     Sentence        &operator=(Sentence const &rhs);
+    
+    int             operator==(Sentence const &rhs);
+    int             operator==(std::string const &rhs);
+    int             operator==(std::string &rhs);
 };
 
 std::ostream    &operator<<(std::ostream &o, Sentence const &rhs);

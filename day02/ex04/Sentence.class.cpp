@@ -18,6 +18,11 @@ Sentence::~Sentence()
 {
 }
 
+void            Sentence::setWord(std::string word)
+{
+    this->_word = word;
+}
+
 std::string     Sentence::getWord(void) const
 {
     return this->_word;
@@ -56,6 +61,31 @@ Sentence        &Sentence::operator=(Sentence const &rhs)
         this->_word = rhs.getWord();
     return *this;
 }
+
+int             Sentence::operator==(Sentence const &rhs)
+{
+    if (this->getWord().compare(rhs.getWord()))
+        return 0;
+    else
+        return 1;
+}
+
+int             Sentence::operator==(std::string const &rhs)
+{
+    if (this->getWord().compare(rhs))
+        return 0;
+    else
+        return 1;
+}
+
+int             Sentence::operator==(std::string &rhs)
+{
+    if (this->getWord().compare(rhs))
+        return 0;
+    else
+        return 1;
+}
+
 
 std::ostream    &operator<<(std::ostream &o, Sentence const &rhs)
 {

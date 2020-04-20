@@ -1,27 +1,38 @@
 #include "eval_expr.hpp"
 
-static std::string  parseArg(std::string input)
+static Sentence  *parseArg(Sentence *expression, std::string input)
 {
     std::string         buf;
     std::istringstream  iss;
-    //int                 words = countWords(input);
+    Sentence            *temp = expression;
 
     iss.str(input);
     for (int n = 0; n < countWords(input); n++)
     {
-
+        iss >> buf;
+        std::cout << "test1" << std::endl;
+        if (expression == NULL)
+            expression->setWord(buf);
+        std::cout << buf << std::endl;
+        std::cout << "test2" << std::endl;
+        while (temp->getNext())
+            temp = temp->getNext();
+        Sentence    mot(buf);
+        temp->setNext(&mot);
+        std::cout << "ici ?" << std::endl;
     }
-
+    return expression;
 }
 
 void	            parseArgs(int argc, char **argv)
 {
-    std::string final;
+    Sentence    *expression;
+    std::string word;
 
-    for (int i = 0; i < argc; i++)
-    {
-        final.append(parseArg(argv[i]));
-    }
+    for (int i = 1; i < argc; i++)
+        expression = parseArg(expression, argv[i]);
+
+    expression->getSentence();
 }
 
 

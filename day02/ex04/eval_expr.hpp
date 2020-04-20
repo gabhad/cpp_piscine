@@ -5,6 +5,7 @@
 #include <sstream>
 
 #include "Fixed.class.hpp"
+#include "Sentence.class.hpp"
 
 void    errorMessage(void);
 void    invalidOperation(void);
