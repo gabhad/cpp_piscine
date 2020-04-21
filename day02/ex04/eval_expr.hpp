@@ -5,7 +5,6 @@
 #include <sstream>
 
 #include "Fixed.class.hpp"
-#include "Sentence.class.hpp"
 
 void    errorMessage(void);
 void    invalidOperation(void);
@@ -13,5 +12,7 @@ void    invalidOperation(void);
 void    parseArgs(int argc, char **argv);
 
 int     countWords(std::string const str);
+
+void    evaluateExpression(std::string *array);
 
 #endif
