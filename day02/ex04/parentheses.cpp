@@ -2,8 +2,6 @@
 
 std::string &treatParentheses(std::string *array, int i, int word, Fixed &result)
 {
-    int     i = 1;
-
     while (array[i].compare(")"))
     {
         if (!array[i].compare("("))

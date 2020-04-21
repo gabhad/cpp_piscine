@@ -9,7 +9,8 @@ SRC_NAME =		main.cpp \
 				parsing.cpp\
 				countWords.cpp \
 				evalExpr.cpp \
-				operandes.cpp
+				operandes.cpp \
+				parentheses.cpp
 
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
 
