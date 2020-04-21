@@ -20,6 +20,7 @@ Fixed       opMinus(Fixed &lhs, Fixed &rhs);
 Fixed       opMultiply(Fixed &lhs, Fixed &rhs);
 Fixed       opDivide(Fixed &lhs, Fixed &rhs);
 
-std::string &treatParentheses(std::string *array);
+Fixed   &workCalc(Fixed &result, std::string *array);
+std::string &treatParentheses(std::string *array, int i, int word, Fixed &result);
 
 #endif
