@@ -62,6 +62,18 @@ Sentence        &Sentence::operator=(Sentence const &rhs)
     return *this;
 }
 
+Sentence        &Sentence::operator=(std::string const &rhs)
+{
+    this->_word = rhs;
+    return *this;
+}
+
+Sentence        &Sentence::operator=(std::string &rhs)
+{
+    this->_word = rhs;
+    return *this;
+}
+
 int             Sentence::operator==(Sentence const &rhs)
 {
     if (this->getWord().compare(rhs.getWord()))

@@ -1,39 +1,43 @@
+
 #include "eval_expr.hpp"
 
-static Sentence  *parseArg(Sentence *expression, std::string input)
+void                splitString(std::string expression)
+{
+    int                 i = countWords(expression);
+    std::string         array[i];
+    std::istringstream  iss;
+    std::string         buf;
+    int                 n;
+    
+    iss.str(expression);
+    for (n = 0; n < i; n++)
+    {
+        iss >> buf;
+        array[n] = buf;
+    }
+}
+
+static std::string  parseArg(std::string expression, std::string input)
 {
     std::string         buf;
     std::istringstream  iss;
-    Sentence            *temp = expression;
 
     iss.str(input);
     for (int n = 0; n < countWords(input); n++)
     {
         iss >> buf;
-        std::cout << "test1" << std::endl;
-        if (expression == NULL)
-            expression->setWord(buf);
-        std::cout << buf << std::endl;
-        std::cout << "test2" << std::endl;
-        while (temp->getNext())
-            temp = temp->getNext();
-        Sentence    mot(buf);
-        temp->setNext(&mot);
-        std::cout << "ici ?" << std::endl;
+        expression.append(buf);
+        expression.append(" ");
     }
     return expression;
 }
 
 void	            parseArgs(int argc, char **argv)
 {
-    Sentence    *expression;
-    std::string word;
+    std::string     expression;
 
     for (int i = 1; i < argc; i++)
         expression = parseArg(expression, argv[i]);
 
-    expression->getSentence();
+    splitString(expression);
 }
-
-
-// Use istringstream str() function to split into "words"

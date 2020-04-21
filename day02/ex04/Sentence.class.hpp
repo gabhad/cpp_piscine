@@ -23,6 +23,9 @@ public:
     std::string     getSentence(void) const;
 
     Sentence        &operator=(Sentence const &rhs);
+    Sentence        &operator=(std::string const &rhs);
+    Sentence        &operator=(std::string &rhs);
+
     
     int             operator==(Sentence const &rhs);
     int             operator==(std::string const &rhs);

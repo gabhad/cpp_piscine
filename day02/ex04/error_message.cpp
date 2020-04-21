@@ -2,7 +2,7 @@
 
 void    invalidOperation(void)
 {
-    std::cout << "Please enter a valid arithmetic expression." << std::cout;
+    std::cout << "Please enter a valid arithmetic expression." << std::endl;
     exit(0);
 }
 
