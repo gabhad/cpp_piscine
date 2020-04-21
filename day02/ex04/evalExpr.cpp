@@ -1,26 +1,24 @@
 #include "eval_expr.hpp"
 
-std::string removeRow(std::string *array, int i, int nb, int word)
+static int  countOperands(std::string *array, int word)
 {
-    std::string final[word - nb];
-    int         n = 0;
-    
-    std::cout << "toto" << std::endl;
-    while (n <= i)
+    int     i = 0;
+    int     count = 0;
+
+    while (i < word)
     {
-        final[n] = array[n];
-        n++;
+        if (!array[i].compare("+") || !array[i].compare("-")
+            || !array[i].compare("*") || !array[i].compare("/"))
+        {
+            if (i == 0 || i == word - 1)
+                invalidOperation();
+            count++;
+        }
+        i++;
     }
-    std::cout << "n = " << n << std::endl;
-    while (n < word - nb)
-    {
-        final[n] = array[n + nb];
-        n++;
-    }
-/*     std::cout << "n = " << n << std::endl;
-    std::cout << "array = " << *array << std::endl;
-    std::cout << "final = " << *final << std::endl;
- */    return *final;
+    if (count == 0)
+        invalidOperation();
+    return count;
 }
 
 Fixed       &workCalc(Fixed &result, std::string *array)
@@ -39,7 +37,6 @@ Fixed       &workCalc(Fixed &result, std::string *array)
         if (array[1] == func[i])
         {
             result = result + ptr[i](lhs, rhs);
-            array[0] = std::to_string(result.toFloat());
             return (result);
         }
         i++;
@@ -49,17 +46,22 @@ Fixed       &workCalc(Fixed &result, std::string *array)
 
 void        evaluateExpression(std::string *array, int word)
 {
-    Fixed   result;
-    int     i = 0;
+    Fixed       result;
+    int         i = 0;
+    int         count = countOperands(array, word);
+    int         order[count];
 
-    result = workCalc(result, array);
-    *array = removeRow(array, i, 2, word);
+    for (int n = 0; n < count; n++)
+        order[n] = 0;
+
     while (i < word)
     {
+        // First priority parentheses
         if (!array[i].compare("("))
-            array = &treatParentheses(array, i, word, result);
+            order = treatParentheses(array, i, word, order);
         i++;
     }
+    //result = calcPriorities(array, i, word, result);
     std::cout << "result = " << result << std::endl;
     std::cout << "array = ";
     for (int n = 0; n < word; n++)

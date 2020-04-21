@@ -21,7 +21,6 @@ Fixed       opMultiply(Fixed &lhs, Fixed &rhs);
 Fixed       opDivide(Fixed &lhs, Fixed &rhs);
 
 Fixed       &workCalc(Fixed &result, std::string *array);
-std::string &treatParentheses(std::string *array, int i, int word, Fixed &result);
-std::string removeRow(std::string *array, int i, int nb, int word);
+Fixed       &treatParentheses(std::string *array, int i, int word, Fixed &result);
 
 #endif
