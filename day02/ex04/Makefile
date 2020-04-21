@@ -8,7 +8,8 @@ SRC_NAME =		main.cpp \
 				error_message.cpp \
 				parsing.cpp\
 				countWords.cpp \
-				evalExpr.cpp
+				evalExpr.cpp \
+				operandes.cpp
 
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
 

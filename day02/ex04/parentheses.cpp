@@ -1,14 +1,14 @@
 #include "eval_expr.hpp"
 
-void    evalExpr(std::string *array, int word)
+std::string &treatParentheses(std::string *array, int i, int word)
 {
-    Fixed   result;
-    int     i;
+    int     i = 0;
 
-    while (i < word)
+    while (array[i].compare(")"))
     {
         if (!array[i].compare("("))
             array = &treatParentheses(array, i, word);
         i++;
     }
+    return *array;
 }

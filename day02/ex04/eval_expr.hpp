@@ -6,13 +6,20 @@
 
 #include "Fixed.class.hpp"
 
-void    errorMessage(void);
-void    invalidOperation(void);
+void        errorMessage(void);
+void        invalidOperation(void);
 
-void    parseArgs(int argc, char **argv);
+void        parseArgs(int argc, char **argv);
 
-int     countWords(std::string const str);
+int         countWords(std::string const str);
 
-void    evaluateExpression(std::string *array);
+void        evaluateExpression(std::string *array, int word);
+
+Fixed       opPlus(Fixed &lhs, Fixed &rhs);
+Fixed       opMinus(Fixed &lhs, Fixed &rhs);
+Fixed       opMultiply(Fixed &lhs, Fixed &rhs);
+Fixed       opDivide(Fixed &lhs, Fixed &rhs);
+
+std::string &treatParentheses(std::string *array);
 
 #endif

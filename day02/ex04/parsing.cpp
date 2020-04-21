@@ -14,7 +14,7 @@ void                splitString(std::string expression)
         iss >> buf;
         array[n] = buf;
     }
-    evaluateExpression(array);
+    evaluateExpression(array, i);
 }
 
 static std::string  parseArg(std::string expression, std::string input)
