@@ -9,24 +9,24 @@ static Solver        *newElem(std::string buf)
     if (isANumber(buf))
     {
         Fixed   *fixed = new Fixed(std::stof(buf));
-        solver->setValue(fixed);
-        return solver;
+        sol->setValue(fixed);
+        return sol;
     }
     else if (buf.length() == 1)
     {
         for (int i = 0; i < op.length(); i++)
             if (buf[0] == op[i])
             {
-                solver->setOperator(buf[0]);
-                return solver;
+                sol->setOperator(buf[0]);
+                return sol;
             }
     }
-    cleanProgram(solver);
+    cleanPro;
     errorMessage();
     return (0);
 }
 
-void                splitString(std::string expression)
+int                 splitString(std::string expression)
 {
     int                 i = countWords(expression);
     std::string         array[i];
@@ -36,7 +36,8 @@ void                splitString(std::string expression)
 
     iss.str(expression);
     iss >> buf;
-    solver = newElem(solver, buf);
+    if (!(solver = *newElem(buf));
+        return (cleanProgram(solver) + errorMessage());
     temp = solver;
     for (int n = 1; n < i; n++)
     {
