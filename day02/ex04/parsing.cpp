@@ -7,11 +7,17 @@ void                splitString(std::string expression)
     std::istringstream  iss;
     std::string         buf;
     int                 n;
-    
+    Solver              *solver;
+
+    solver->setNbOfWords(i);
+    std::cout << expression << std::endl;
+    exit(0);
     iss.str(expression);
     for (n = 0; n < i; n++)
     {
         iss >> buf;
+        if (isdigit(buf[0]))
+
         array[n] = buf;
     }
     evaluateExpression(array, i);
