@@ -7,10 +7,11 @@
 #include "Fixed.class.hpp"
 #include "Solver.class.hpp"
 
-void        errorMessage(void);
-void        invalidOperation(void);
+int         errorMessage(void);
+int         invalidOperation(void);
 
 void        parseArgs(int argc, char **argv);
+int         cleanProgram(Solver *solver);
 
 int         countWords(std::string const str);
 int         isANumber(std::string const str);

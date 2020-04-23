@@ -62,6 +62,8 @@ void        Solver::setOperator(char const c)
 
 Solver      *Solver::getNext(void) const
 {
+    if (!this->_next)
+        return 0;
     return this->_next;
 }
 
