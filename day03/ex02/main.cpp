@@ -10,15 +10,12 @@ int     main(void)
     assign = copy;
 
     frag.rangedAttack("Mouloud");
-    frag.meleeAttack("Kevin");
 
-    frag.takeDamage(60);
-    frag.takeDamage(60);
+    frag.takeDamage(120);
 
     frag.beRepaired(110);
 
-    for (int i = 0; i < 5; i++)
-        frag.vaulthunter_dot_exe("Brendon");
+    frag.vaulthunter_dot_exe("Brendon");
 
     ScavTrap    scav("Dylan");
     ScavTrap    scCopy(scav);
@@ -26,16 +23,13 @@ int     main(void)
     
     scAssign = scCopy;
 
-    scav.rangedAttack("Mouloud");
     scav.meleeAttack("Kevin");
 
-    scav.takeDamage(60);
-    scav.takeDamage(60);
+    scav.takeDamage(120);
 
     scav.beRepaired(110);
 
-    for (int i = 0; i < 5; i++)
-        scav.challengeNewcomer();
+    scav.challengeNewcomer();
         
     return 0;
 }

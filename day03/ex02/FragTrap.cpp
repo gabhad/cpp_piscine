@@ -1,85 +1,39 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(),
-        _hitPoints(100), _maxHitPoints(100), 
-        _energyPoints(100), _maxEnergyPoints(100),
-        _level(), _name(name),
-        _meleeAttackDamage(30), _rangedAttackDamage(20),
-        _armorDamageReduction(5)
+FragTrap::FragTrap(std::string name) : ClapTrap()
 {
-    std::cout << "Name constructor called." << std::endl;
+    this->_hitPoints = 100;
+    this->_maxHitPoints = 100;
+    this->_energyPoints = 100;
+    this->_maxEnergyPoints = 100;
+    this->_name = name;
+    this->_meleeAttackDamage = 30;
+    this->_rangedAttackDamage = 20;
+    this->_armorDamageReduction = 5;
+    std::cout << "FR4G-TP parameter constructor called." << std::endl;
 }
 
-FragTrap::FragTrap(void) : _hitPoints(100), _maxHitPoints(100), 
-        _energyPoints(100), _maxEnergyPoints(100),
-        _level(),
-        _meleeAttackDamage(30), _rangedAttackDamage(20),
-        _armorDamageReduction(5)
-
+FragTrap::FragTrap(void) : ClapTrap()
 {
-    std::cout << "Default constructor called." << std::endl;
+    this->_hitPoints = 100;
+    this->_maxHitPoints = 100;
+    this->_energyPoints = 100;
+    this->_maxEnergyPoints = 100;
+    this->_meleeAttackDamage = 30;
+    this->_rangedAttackDamage = 20;
+    this->_armorDamageReduction = 5;
+    std::cout << "FR4G-TP default constructor called." << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const & src)
+FragTrap::FragTrap(FragTrap const & src) : ClapTrap()
 {
-    std::cout << "Copy constructor called." << std::endl;
+    std::cout << "FR4G-TP copy constructor called." << std::endl;
     *this = src;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "Default destructor called." << std::endl;
-}
-
-void        FragTrap::rangedAttack(std::string const & target)
-{
-    std::cout << "FR4G-TP " << *this << " attacks " << target;
-    std::cout << " at range, causing " << this->_rangedAttackDamage;
-    std::cout << " points of damage!" << std::endl;
-}
-
-void        FragTrap::meleeAttack(std::string const & target)
-{
-    std::cout << "FR4G-TP " << *this << " attacks " << target;
-    std::cout << " in the melee, causing " << this->_meleeAttackDamage;
-    std::cout << " points of damage!" << std::endl;
-}
-
-void        FragTrap::takeDamage(unsigned int amount)
-{
-    if (this->_hitPoints < (amount - this->_armorDamageReduction))
-    {
-        this->_hitPoints = 0;
-        std::cout << "FR4G-TP " << *this << " just took a hard hit. He has no Hit Points left." << std::endl;
-    }
-    else
-    {
-        this->_hitPoints -= (amount - this->_armorDamageReduction);
-        std::cout << "FR4G-TP " << *this << " just took a hard hit. He has ";
-        std::cout << this->_hitPoints << " remaining." << std::endl;
-    }
-}
-
-void        FragTrap::beRepaired(unsigned int amount)
-{
-    if (this->_hitPoints + amount > this->_maxHitPoints)
-        this->_hitPoints = this->_maxHitPoints;
-    else
-        this->_hitPoints += amount;
-    if (this->_energyPoints + amount > this->_maxEnergyPoints)
-        this->_energyPoints = this->_maxEnergyPoints;
-    else
-        this->_energyPoints += amount;
-
-
-    std::cout << "FR4G-TP " << *this << " just got repaired. He is now back to ";
-    std::cout << this->_hitPoints << " HP and " << this->_energyPoints;
-    std::cout << " energy points." << std::endl;
-}
-
-std::string     FragTrap::getName(void) const
-{
-    return this->_name;
+    std::cout << "FR4G-TP default destructor called." << std::endl;
 }
 
 void        FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -110,7 +64,7 @@ FragTrap    &FragTrap::operator=(FragTrap const &rhs)
         this->_rangedAttackDamage = rhs._rangedAttackDamage;
         this->_armorDamageReduction = rhs._armorDamageReduction;
     }
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout << "FR4G-TP assignation operator called" << std::endl;
     return *this;
 }
 
