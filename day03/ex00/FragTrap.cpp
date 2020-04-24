@@ -63,18 +63,26 @@ void        FragTrap::beRepaired(unsigned int amount)
 
 
     std::cout << "FR4G-TP " << this->_name << " just got repaired. He is now back to ";
-    std::cout << this->_hitPoints << "  HP and " << this->_energyPoints;
+    std::cout << this->_hitPoints << " HP and " << this->_energyPoints;
     std::cout << " energy points." << std::endl;
 }
 
 void        FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-
+    std::string     attacks[5] = { " throws his shoe at ",
+                                    " spits on ", " plucks his finger in the eyes of ",
+                                    " farts on ", " calls his friends to beat the shit out of "};
+    if (this->_energyPoints < 25)
+        std::cout << this->_name << " is out of breath and cannot perform this action. He stays not moving like an idiot instead." << std::endl;
+    else
+    {
+        std::cout << this->_name << attacks[rand() % 5] << target << " and causes damage." << std::endl;
+        this->_energyPoints -= 25;
+    }
 }
 
 FragTrap    &FragTrap::operator=(FragTrap const &rhs)
 {
-    std::cout << "Assignation operator called" << std::endl;
     if (this != &rhs)
     {
         this->_hitPoints = rhs._hitPoints;
@@ -87,5 +95,6 @@ FragTrap    &FragTrap::operator=(FragTrap const &rhs)
         this->_rangedAttackDamage = rhs._rangedAttackDamage;
         this->_armorDamageReduction = rhs._armorDamageReduction;
     }
+    std::cout << "Assignation operator called" << std::endl;
     return *this;
 }
