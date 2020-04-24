@@ -18,6 +18,7 @@ private:
 
 public:
     FragTrap(std::string name);
+    FragTrap(void);
     FragTrap(FragTrap const & src);
     ~FragTrap();
 
@@ -26,9 +27,13 @@ public:
     void            takeDamage(unsigned int amount);
     void            beRepaired(unsigned int amount);
 
+    std::string     getName(void) const;
+
     void            vaulthunter_dot_exe(std::string const & target);
 
     FragTrap        &operator=(FragTrap const & rhs);
 };
+
+std::ostream        &operator<<(std::ostream & o, FragTrap const & src);
 
 #endif

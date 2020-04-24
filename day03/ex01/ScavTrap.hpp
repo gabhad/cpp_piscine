@@ -18,6 +18,7 @@ private:
     
 public:
     ScavTrap(std::string name);
+    ScavTrap(void);
     ScavTrap(ScavTrap const & src);
     ~ScavTrap();
 
@@ -26,9 +27,14 @@ public:
     void            takeDamage(unsigned int amount);
     void            beRepaired(unsigned int amount);
 
-    void            challengeNewcomer(std::string const & target);
+    std::string     getName(void) const;
+
+    void            challengeNewcomer(void);
 
     ScavTrap        &operator=(ScavTrap const & rhs);
 };
+
+std::ostream        &operator<<(std::ostream & o, ScavTrap const & src);
+
 
 #endif
