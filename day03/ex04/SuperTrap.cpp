@@ -1,29 +1,29 @@
 #include "SuperTrap.hpp"
 
-SuperTrap::SuperTrap(std::string name) : FragTrap(), NinjaTrap()
+SuperTrap::SuperTrap(std::string name) : ClapTrap(
+    this->defHitPoints,
+    this->defMaxHitPoints,
+    this->defEnergyPoint,
+    this->defMaxEnergyPoint,
+    1,
+    name,
+    this->defMeleeAttackDamage,
+    this->defRangedAttackDamage,
+    this->defArmorDamageReduction)
 {
-    this->_hitPoints = FragTrap::_hitPoints;
-    this->_maxHitPoints = FragTrap::_maxHitPoints;
-    this->_energyPoints = NinjaTrap::_energyPoints;
-    this->_maxEnergyPoints = NinjaTrap::_maxEnergyPoints;
-    this->_level = ClapTrap::_level;
-    this->_name = name;
-    this->_meleeAttackDamage = NinjaTrap::_meleeAttackDamage;
-    this->_rangedAttackDamage = FragTrap::_rangedAttackDamage;
-    this->_armorDamageReduction = FragTrap::_armorDamageReduction;
     std::cout << "SUPER-TP parameter constructor called." << std::endl;
 }
 
-SuperTrap::SuperTrap(void) : FragTrap(), NinjaTrap()
+SuperTrap::SuperTrap(void) : ClapTrap(
+    this->defHitPoints,
+    this->defMaxHitPoints,
+    this->defEnergyPoint,
+    this->defMaxEnergyPoint,
+    1,
+    this->defMeleeAttackDamage,
+    this->defRangedAttackDamage,
+    this->defArmorDamageReduction)
 {
-    this->_hitPoints = FragTrap::_hitPoints;
-    this->_maxHitPoints = FragTrap::_maxHitPoints;
-    this->_energyPoints = NinjaTrap::_energyPoints;
-    this->_maxEnergyPoints = NinjaTrap::_maxEnergyPoints;
-    this->_level = ClapTrap::_level;
-    this->_meleeAttackDamage = NinjaTrap::_meleeAttackDamage;
-    this->_rangedAttackDamage = FragTrap::_rangedAttackDamage;
-    this->_armorDamageReduction = FragTrap::_armorDamageReduction;
     std::cout << "SUPER-TP default constructor called." << std::endl;
 }
 

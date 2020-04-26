@@ -1,5 +1,9 @@
 #include "NinjaTrap.hpp"
 
+int defEnergyPoint = 120;
+int defMaxEnergyPoint = 120;
+int defMeleeAttackDamage = 60;
+
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(60, 60, 120, 120, 1, name, 60, 5, 0)
 {
     std::cout << "NNJ4-TP parameter constructor called." << std::endl;

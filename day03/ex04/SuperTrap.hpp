@@ -4,6 +4,7 @@
 #include "FragTrap.hpp"
 #include "NinjaTrap.hpp"
 
+
 class SuperTrap : public FragTrap, public NinjaTrap
 {
 private:

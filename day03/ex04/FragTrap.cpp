@@ -1,5 +1,10 @@
 #include "FragTrap.hpp"
 
+int  defHitPoints = 100;
+int  defMaxHitPoints = 100;
+int  defRangedAttackDamage = 20;
+int  defArmorDamageReduction = 5;
+
 FragTrap::FragTrap(std::string name) : ClapTrap(100, 100, 100, 100, 1, name, 30, 20, 5)
 {
     std::cout << "FR4G-TP parameter constructor called." << std::endl;

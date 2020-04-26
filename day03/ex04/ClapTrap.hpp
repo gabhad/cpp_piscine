@@ -27,12 +27,21 @@ public:
         unsigned int    meleeAttackDamage,
         unsigned int    rangedAttackDamage,
         unsigned int    armorDamageReduction );
+    ClapTrap(
+        unsigned int    hitPoints,
+        unsigned int    maxHitPoints,
+        unsigned int    energyPoints,
+        unsigned int    maxEnergyPoints,
+        unsigned int    level,
+        unsigned int    meleeAttackDamage,
+        unsigned int    rangedAttackDamage,
+        unsigned int    armorDamageReduction );
     ClapTrap(void);
     ClapTrap(ClapTrap const & src);
     ~ClapTrap();
 
-    void            rangedAttack(std::string const & target);
-    void            meleeAttack(std::string const & target);
+    virtual void    rangedAttack(std::string const & target);
+    virtual void    meleeAttack(std::string const & target);
     void            takeDamage(unsigned int amount);
     void            beRepaired(unsigned int amount);
 

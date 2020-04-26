@@ -9,6 +9,11 @@ class NinjaTrap : virtual public ClapTrap
 {
 private:
 
+protected:
+    static int  defEnergyPoint;
+    static int  defMaxEnergyPoint;
+    static int  defMeleeAttackDamage;
+
 public:
     NinjaTrap(std::string name);
     NinjaTrap(void);
@@ -21,7 +26,6 @@ public:
     void            ninjaShoebox(FragTrap const & target);
     void            ninjaShoebox(ScavTrap const & target);
     void            ninjaShoebox(NinjaTrap const & target);
-
 
     NinjaTrap       &operator=(NinjaTrap const & rhs);
 };

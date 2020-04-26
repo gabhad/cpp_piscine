@@ -19,6 +19,24 @@ ClapTrap::ClapTrap(
     std::cout << "CL4P-TP parameter constructor called." << std::endl;
 }
 
+ClapTrap::ClapTrap(    
+    unsigned int    hitPoints,
+    unsigned int    maxHitPoints,
+    unsigned int    energyPoints,
+    unsigned int    maxEnergyPoints,
+    unsigned int    level,
+    unsigned int    meleeAttackDamage,
+    unsigned int    rangedAttackDamage,
+    unsigned int    armorDamageReduction ) 
+        : _hitPoints(hitPoints), _maxHitPoints(maxHitPoints), 
+        _energyPoints(energyPoints), _maxEnergyPoints(maxEnergyPoints),
+        _level(level),
+        _meleeAttackDamage(meleeAttackDamage), _rangedAttackDamage(rangedAttackDamage),
+        _armorDamageReduction(armorDamageReduction)
+{
+    std::cout << "CL4P-TP default constructor called." << std::endl;
+}
+
 ClapTrap::ClapTrap(void)
 {
     std::cout << "CL4P-TP default constructor called." << std::endl;
