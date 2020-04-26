@@ -1,8 +1,8 @@
 #include "NinjaTrap.hpp"
 
-int defEnergyPoint = 120;
-int defMaxEnergyPoint = 120;
-int defMeleeAttackDamage = 60;
+int NinjaTrap::defEnergyPoint = 120;
+int NinjaTrap::defMaxEnergyPoint = 120;
+int NinjaTrap::defMeleeAttackDamage = 60;
 
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(60, 60, 120, 120, 1, name, 60, 5, 0)
 {
@@ -27,9 +27,7 @@ NinjaTrap::~NinjaTrap()
 
 void        NinjaTrap::meleeAttack(std::string const & target)
 {
-    std::cout << *this << " attacks " << target;
-    std::cout << " in the melee, causing " << this->_meleeAttackDamage;
-    std::cout << " points of damage!" << std::endl;
+	std::cout << *this << " attacks " << target << " in the melee " << this->_rangedAttackDamage << " points of damage! -- Called from NinjaTrap!" << std::endl;
 }
 
 void        NinjaTrap::ninjaShoebox(ClapTrap const & target)

@@ -8,6 +8,8 @@ class FragTrap : virtual public ClapTrap
 private:
 
 protected:
+    FragTrap(void);
+
     static int  defHitPoints;
     static int  defMaxHitPoints;
     static int  defRangedAttackDamage;
@@ -15,9 +17,8 @@ protected:
 
 public:
     FragTrap(std::string name);
-    FragTrap(void);
     FragTrap(FragTrap const & src);
-    ~FragTrap();
+    virtual ~FragTrap();
 
     void            rangedAttack(std::string const & target);
 

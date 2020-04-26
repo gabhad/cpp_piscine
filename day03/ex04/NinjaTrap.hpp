@@ -2,23 +2,24 @@
 # define NINJATRAP_HPP
 
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 class NinjaTrap : virtual public ClapTrap
 {
 private:
 
 protected:
+    NinjaTrap(void);
+
     static int  defEnergyPoint;
     static int  defMaxEnergyPoint;
     static int  defMeleeAttackDamage;
 
 public:
     NinjaTrap(std::string name);
-    NinjaTrap(void);
     NinjaTrap(NinjaTrap const & src);
-    ~NinjaTrap();
+    virtual ~NinjaTrap();
 
     void            meleeAttack(std::string const & target);
 

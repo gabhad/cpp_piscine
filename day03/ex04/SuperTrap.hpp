@@ -1,17 +1,16 @@
 #ifndef SUPERTRAP_HPP
 # define SUPERTRAP_HPP
 
+#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "NinjaTrap.hpp"
-
 
 class SuperTrap : public FragTrap, public NinjaTrap
 {
 private:
-    
+    SuperTrap(void);
 public:
     SuperTrap(std::string name);
-    SuperTrap(void);
     SuperTrap(SuperTrap const &c);
     ~SuperTrap();
 
