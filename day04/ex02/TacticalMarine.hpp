@@ -17,7 +17,6 @@ class TacticalMarine : public ISpaceMarine
         void            battleCry() const;
         void            rangedAttack() const;
         void            meleeAttack() const;
-
 };
 
 #endif

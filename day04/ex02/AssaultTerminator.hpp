@@ -5,19 +5,18 @@
 
 class AssaultTerminator : public ISpaceMarine
 {
-private:
-    /* data */
-public:
-    AssaultTerminator();
-    AssaultTerminator(AssaultTerminator const & src);
-    ~AssaultTerminator();
-    AssaultTerminator   &operator=(AssaultTerminator const & rhs);
+    private:
 
-    ISpaceMarine    *clone() const;
-    void            battleCry() const;
-    void            rangedAttack() const;
-    void            meleeAttack() const;
+    public:
+        AssaultTerminator();
+        AssaultTerminator(AssaultTerminator const & src);
+        ~AssaultTerminator();
+        AssaultTerminator   &operator=(AssaultTerminator const & rhs);
 
+        ISpaceMarine    *clone() const;
+        void            battleCry() const;
+        void            rangedAttack() const;
+        void            meleeAttack() const;
 };
 
 #endif

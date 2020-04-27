@@ -55,8 +55,9 @@ int             Squad::push(ISpaceMarine* marine)
         _new[i] = _marine[i];
     _new[this->_unitNb] = marine;
     for (int i = 0; i < this->_unitNb; i++)
-        delete this->_marine[i];
-    *this->_marine = *_new;
-    return ++this->_unitNb;
+        this->_marine[i] = _new[i];
+    this->_marine[this->_unitNb] = marine;
+    this->_unitNb++;
+    return this->_unitNb;
 }
 
