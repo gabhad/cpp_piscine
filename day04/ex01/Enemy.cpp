@@ -25,6 +25,7 @@ Enemy &Enemy::operator=(Enemy const & rhs)
         this->_hp = rhs._hp;
         this->_type = rhs._type;
     }
+    return *this;
 }
 
 std::string     Enemy::getType() const

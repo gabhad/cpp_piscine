@@ -23,9 +23,9 @@ AWeapon &AWeapon::operator=(AWeapon const & rhs)
 {
     if (this != &rhs)
     {
-        this->_name = rhs.getName();
-        this->_damage = rhs.getDamage();
-        this->_apcost = rhs.getAPCost();
+        this->_name = rhs._name;
+        this->_damage = rhs._damage;
+        this->_apcost = rhs._apcost;
     }
     return *this;
 }

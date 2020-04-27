@@ -1,13 +1,17 @@
 #ifndef RADSCORPION_HPP
 # define RADSCORPION_HPP
 
-class RadScorpion
+#include "Enemy.hpp"
+
+class RadScorpion : public Enemy
 {
 private:
-    /* data */
+
 public:
-    RadScorpion(/* args */);
+    RadScorpion(void);
+    RadScorpion(RadScorpion const & src);
     ~RadScorpion();
+    RadScorpion &operator=(RadScorpion const & rhs);
 };
 
 #endif
