@@ -1,13 +1,19 @@
 #ifndef POWERFIST_HPP
 # define POWERFIST_HPP
 
-class PowerFist
+#include "AWeapon.hpp"
+
+class PowerFist : public AWeapon
 {
 private:
-    /* data */
+
 public:
-    PowerFist(/* args */);
+    PowerFist();
+    PowerFist(PowerFist const & src);
     ~PowerFist();
+    PowerFist &operator=(PowerFist const & rhs);
+
+    void    attack() const;
 };
 
 #endif

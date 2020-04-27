@@ -1,13 +1,19 @@
 #ifndef PLASMARIFLE_HPP
 # define PLASMARIFLE_HPP
 
-class PlasmaRifle
+#include "AWeapon.hpp"
+
+class PlasmaRifle : public AWeapon
 {
 private:
-    /* data */
+
 public:
-    PlasmaRifle(/* args */);
+    PlasmaRifle();
+    PlasmaRifle(PlasmaRifle const & src);
     ~PlasmaRifle();
+    PlasmaRifle &operator=(PlasmaRifle const & rhs);
+
+    void    attack() const;
 };
 
 #endif

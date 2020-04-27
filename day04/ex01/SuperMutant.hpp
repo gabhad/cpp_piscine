@@ -1,13 +1,19 @@
 #ifndef SUPERMUTANT_HPP
 # define SUPERMUTANT_HPP
 
-class SuperMutant
+#include "Enemy.hpp"
+
+class SuperMutant : public Enemy
 {
-private:
-    /* data */
-public:
-    SuperMutant(/* args */);
-    ~SuperMutant();
+    private:
+
+    public:
+        SuperMutant(void);
+        SuperMutant(SuperMutant const & src);
+        ~SuperMutant();
+        SuperMutant &operator=(SuperMutant const & rhs);
+
+        void        takeDamage(int damage);
 };
 
 #endif
