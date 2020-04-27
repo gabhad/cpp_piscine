@@ -29,7 +29,7 @@ class Character
         
         std::string virtual getName() const;
         int             getAp() const;
-        std::string     getWeap() const;
+        AWeapon         *getWeap() const;
 };
 
 std::ostream    &operator<<(std::ostream & o, Character & rhs);

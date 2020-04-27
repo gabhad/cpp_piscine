@@ -1,7 +1,7 @@
 #include "Character.hpp"
 
 Character::Character(std::string const & name) :
-            _name(name), _ap(40)
+            _name(name), _ap(40), _weap(NULL)
 {
 }
 
@@ -55,6 +55,7 @@ void    Character::attack(Enemy *target)
     target->takeDamage(this->_weap->getDamage());
     if (target->getHP() < 1)
         delete target;
+    this->_ap -= this->_weap->getAPCost();
 }
 
 std::string Character::getName() const
@@ -67,21 +68,21 @@ int         Character::getAp() const
     return this->_ap;
 }
 
-std::string Character::getWeap() const
+AWeapon     *Character::getWeap() const
 {
     if (this->_weap)
-        return this->_weap->getName();
+        return this->_weap;
     else
         return NULL;
 }
 
 std::ostream    &operator<<(std::ostream & o, Character & rhs)
 {
-    if (!rhs.getWeap().empty())
-        o << rhs.getName() << " has " << rhs.getAp() << " AP  and wields a " << rhs.getWeap() << std::endl;
+    if (rhs.getWeap())
+        o << rhs.getName() << " has " << rhs.getAp() << " AP and wields a " << rhs.getWeap()->getName() << std::endl;
     else
     {
-        o << rhs.getName() << " has " << rhs.getAp() << " AP  and is unarmed" << std::endl;
+        o << rhs.getName() << " has " << rhs.getAp() << " AP and is unarmed" << std::endl;
     }
     return o;
 }
