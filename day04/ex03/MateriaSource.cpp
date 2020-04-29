@@ -2,6 +2,8 @@
 
 MateriaSource::MateriaSource()
 {
+    for (size_t i = 0; i < 4; i++)
+        this->_mat[i] = 0;
 }
 
 MateriaSource::MateriaSource(const MateriaSource & src)

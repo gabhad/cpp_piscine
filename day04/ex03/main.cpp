@@ -9,9 +9,7 @@ int main() {
     src->learnMateria(new Cure());
     ICharacter* zaz = new Character("zaz");
     AMateria* tmp;
-    std::cout << "toto" << std::endl;
     tmp = src->createMateria("ice");
-    std::cout << "toto" << std::endl;
     zaz->equip(tmp);
     tmp = src->createMateria("cure");
     zaz->equip(tmp);
