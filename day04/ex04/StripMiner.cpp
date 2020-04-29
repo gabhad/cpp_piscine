@@ -1,23 +1,21 @@
 #include "StripMiner.hpp"
 
-StripMiner::StripMiner(/*args*/)
-{
-}
-
 StripMiner::StripMiner()
 {
 }
 
 StripMiner::StripMiner(const StripMiner & src)
 {
+    *this = src;
 }
 
 StripMiner::~StripMiner()
 {
 }
 
-StripMiner &StripMiner::operator=(const StripMiner & r)
+StripMiner &StripMiner::operator=(const StripMiner & rhs)
 {
+    return *this;
 }
 
 void        StripMiner::mine(IAsteroid *ast)

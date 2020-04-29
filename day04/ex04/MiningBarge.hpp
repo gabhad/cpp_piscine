@@ -8,7 +8,6 @@ class MiningBarge
     private:
         IMiningLaser *_laser[4];
     public:
-        MiningBarge(/* args */);
         MiningBarge();
         MiningBarge(const MiningBarge &);
         ~MiningBarge();

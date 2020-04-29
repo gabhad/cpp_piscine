@@ -10,14 +10,19 @@ MiningBarge::MiningBarge()
 
 MiningBarge::MiningBarge(const MiningBarge & src)
 {
+    *this = src;
 }
 
 MiningBarge::~MiningBarge()
 {
 }
 
-MiningBarge &MiningBarge::operator=(const MiningBarge & r)
+MiningBarge &MiningBarge::operator=(const MiningBarge & rhs)
 {
+    if (this != &rhs)
+        for (size_t i = 0; i < 4; i++)
+            this->_laser[i] = rhs._laser[i];
+    return *this;
 }
 
 void    MiningBarge::equip(IMiningLaser* las)

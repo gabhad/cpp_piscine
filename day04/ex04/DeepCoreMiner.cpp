@@ -1,8 +1,5 @@
 #include "DeepCoreMiner.hpp"
 
-DeepCoreMiner::DeepCoreMiner(/*args*/)
-{
-}
 
 DeepCoreMiner::DeepCoreMiner()
 {
@@ -10,14 +7,16 @@ DeepCoreMiner::DeepCoreMiner()
 
 DeepCoreMiner::DeepCoreMiner(const DeepCoreMiner & src)
 {
+    *this = src;
 }
 
 DeepCoreMiner::~DeepCoreMiner()
 {
 }
 
-DeepCoreMiner &DeepCoreMiner::operator=(const DeepCoreMiner & r)
+DeepCoreMiner &DeepCoreMiner::operator=(const DeepCoreMiner & rhs)
 {
+    return *this;
 }
 
 void        DeepCoreMiner::mine(IAsteroid *ast)

@@ -6,14 +6,18 @@ AsteroKreog::AsteroKreog() : _name("AsteroKreog")
 
 AsteroKreog::AsteroKreog(const AsteroKreog & src)
 {
+    *this = src;
 }
 
 AsteroKreog::~AsteroKreog()
 {
 }
 
-AsteroKreog &AsteroKreog::operator=(const AsteroKreog & r)
+AsteroKreog &AsteroKreog::operator=(const AsteroKreog & rhs)
 {
+    if (this != &rhs)
+        this->_name = rhs._name;
+    return *this;
 }
 
 std::string     AsteroKreog::beMined(DeepCoreMiner *src) const

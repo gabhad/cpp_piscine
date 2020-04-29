@@ -6,9 +6,8 @@
 class StripMiner : public IMiningLaser
 {
     private:
-        /* args */
+
     public:
-        StripMiner(/* args */);
         StripMiner();
         StripMiner(const StripMiner &);
         ~StripMiner();
