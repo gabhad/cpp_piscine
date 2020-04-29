@@ -1,7 +1,8 @@
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-#include <iostream>
+class AMateria;
+
 #include "ICharacter.hpp"
 
 class AMateria
@@ -13,7 +14,7 @@ class AMateria
         AMateria(std::string const & type);
         AMateria();
         AMateria(const AMateria &);
-        ~AMateria();
+        virtual ~AMateria();
         AMateria &operator=(const AMateria &);
 
         std::string const   &getType() const; 

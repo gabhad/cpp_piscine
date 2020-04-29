@@ -6,7 +6,7 @@
 class Cure : public AMateria
 {
     private:
-        /* args */
+        
     public:
         Cure();
         Cure(const Cure &);

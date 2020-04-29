@@ -35,16 +35,25 @@ std::string const & Character::getName() const
 
 void                Character::equip(AMateria* m)
 {
-    if this->
+    for (size_t i = 0; i < 4; i++)
+    {
+        if (!this->_materia[i])
+        {
+            this->_materia[i] = m;
+            return;
+        }
+    }
 }
 
 void                Character::unequip(int idx)
 {
-
+    if (!this->_materia[idx])
+        return;
+    this->_materia[idx] = NULL;
 }
 
 void                Character::use(int idx, ICharacter& target)
 {
-
+    if (this->_materia[idx])
+        this->_materia[idx]->use(target);
 }
-
