@@ -1,7 +1,10 @@
 #ifndef STRIPMINER_HPP
 # define STRIPMINER_HPP
 
+class StripMiner;
+
 #include "IMiningLaser.hpp"
+#include "IAsteroid.hpp"
 
 class StripMiner : public IMiningLaser
 {
@@ -13,7 +16,7 @@ class StripMiner : public IMiningLaser
         ~StripMiner();
         StripMiner &operator=(const StripMiner &);
 
-        virtual void    StripMiner::mine(IAsteroid *ast);
+        virtual void    mine(IAsteroid *ast);
 };
 
 #endif

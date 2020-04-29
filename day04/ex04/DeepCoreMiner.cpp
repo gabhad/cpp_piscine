@@ -16,6 +16,7 @@ DeepCoreMiner::~DeepCoreMiner()
 
 DeepCoreMiner &DeepCoreMiner::operator=(const DeepCoreMiner & rhs)
 {
+    (void)rhs;
     return *this;
 }
 

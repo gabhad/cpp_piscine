@@ -2,6 +2,7 @@
 # define MININGBARGE_HPP
 
 #include "IMiningLaser.hpp"
+#include "IAsteroid.hpp"
 
 class MiningBarge
 {

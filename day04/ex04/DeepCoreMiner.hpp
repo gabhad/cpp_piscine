@@ -1,7 +1,10 @@
 #ifndef DEEPCOREMINER_HPP
 # define DEEPCOREMINER_HPP
 
+class DeepCoreMiner;
+
 #include "IMiningLaser.hpp"
+#include "IAsteroid.hpp"
 
 class DeepCoreMiner : public IMiningLaser
 {
@@ -13,7 +16,7 @@ class DeepCoreMiner : public IMiningLaser
         ~DeepCoreMiner();
         DeepCoreMiner &operator=(const DeepCoreMiner &);
 
-        virtual void mine(IAsteroid*) = 0;
+        virtual void mine(IAsteroid*);
 };
 
 #endif

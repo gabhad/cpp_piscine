@@ -15,6 +15,7 @@ StripMiner::~StripMiner()
 
 StripMiner &StripMiner::operator=(const StripMiner & rhs)
 {
+    (void)rhs;
     return *this;
 }
 

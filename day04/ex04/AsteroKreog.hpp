@@ -1,7 +1,10 @@
 #ifndef ASTEROKREOG_HPP
 # define ASTEROKREOG_HPP
 
+#include <iostream>
 #include "IAsteroid.hpp"
+#include "DeepCoreMiner.hpp"
+#include "StripMiner.hpp"
 
 class AsteroKreog : public IAsteroid
 {
@@ -13,10 +16,9 @@ class AsteroKreog : public IAsteroid
         ~AsteroKreog();
         AsteroKreog &operator=(const AsteroKreog &);
 
-        virtual std::string beMined(DeepCoreMiner *) const;
-        virtual std::string beMined(StripMiner *) const;
+        virtual std::string beMined(DeepCoreMiner *src) const;
+        virtual std::string beMined(StripMiner *src) const;
         virtual std::string getName() const;
-
 };
 
 #endif
