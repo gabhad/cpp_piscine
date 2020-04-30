@@ -14,7 +14,7 @@ class Form
         int         _exGrade;
 
     public:
-        Form(const std::string name, const int signGrade, const int exGrade);
+        Form(const std::string name, const int signGrade, const int exGrade);        
         Form();
         Form(const Form &);
         virtual ~Form();

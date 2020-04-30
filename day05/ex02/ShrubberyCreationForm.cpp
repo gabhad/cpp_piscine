@@ -1,5 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
                     Form("Shruberry Creation Form", 145, 137)
@@ -49,5 +50,19 @@ bool    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 void    ShrubberyCreationForm::createTree() const
 {
-    
+    std::string     filename;
+    std::ofstream   ofs;    
+
+    filename = this->_target;
+    filename.append("_shruberry");
+    ofs.open(filename);
+    ofs << "    ,*-.\n";
+    ofs << "    |  |\n";
+    ofs << ",.  |  |\n";
+    ofs << "| |_|  | ,.\n";
+    ofs << "`---.  |_| |\n";
+    ofs << "    |  .--`\n";
+    ofs << "    |  |\n";
+    ofs << "    |  |\n";
+    ofs.close();
 }
