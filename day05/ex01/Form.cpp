@@ -81,7 +81,6 @@ bool        Form::beSigned(Bureaucrat &bu)
     }
     else
     {
-        bu.signForm(*this);
         this->_signed = 1;
         return 1;
     }
