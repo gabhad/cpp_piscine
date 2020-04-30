@@ -1,17 +1,18 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-    Bureaucrat bu("toto", 30);
+    Bureaucrat  bu("Toto", 30);
+    Form        f1("B212", 50, 20);
+    Form        f2("B325", 25, 15);
+
     std::cout << bu << std::endl;
-    bu.incrementGrade();
-    std::cout << bu << std::endl;
-    bu.decrementGrade();
-    std::cout << bu <<std::endl;
-    for (size_t i = 0; i < 30; i++)
-    {
-        bu.incrementGrade();
-    }
-    Bureaucrat bz("Tutu", 0);
-    Bureaucrat by("Titi", 151);
+    std::cout << f1 << std::endl;
+    std::cout << f2 << std::endl;
+    bu.signForm(f1);
+    bu.signForm(f2);
+    bu.signForm(f1);
+    std::cout << f1 << std::endl;
+    std::cout << f2 << std::endl;
 }

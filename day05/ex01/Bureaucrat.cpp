@@ -87,11 +87,16 @@ void        Bureaucrat::signForm(Form &dest)
 {
     try
     {
-        dest.beSigned(*this);
+        if (dest.beSigned(*this))
+            std::cout << this->getName() << " signs form " << dest.getName() << "." << std::endl;
     }
     catch (Form::GradeTooLowException)
     {
         std::cout << this->_name << " cannot sign form " << dest.getName() << " because he does not have the required level." << std::endl;
+    }
+    catch (Form::AlreadySignedException)
+    {
+        std::cout << this->_name << " cannot sign form " << dest.getName() << " because the form has already been signed." << std::endl;
     }    
 }
 

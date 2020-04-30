@@ -6,9 +6,9 @@ Form::Form(const std::string name, const int signGrade, const int exGrade) :
 {
     try
     {
-        if (this->_signGrade > 150 || this->_exGrade > 150)
+        if (signGrade > 150 || exGrade > 150)
             throw(Form::GradeTooLowException());
-        else if (this->_signGrade < 1 || this->_exGrade < 1)
+        else if (signGrade < 1 || exGrade < 1)
             throw(Form::GradeTooHighException());
         else
         {
@@ -44,6 +44,7 @@ Form &Form::operator=(const Form & rhs)
         this->_signGrade = rhs._signGrade;
         this->_exGrade = rhs._exGrade;
     }
+    return *this;
 }
 
 std::string Form::getName() const
@@ -68,33 +69,23 @@ int         Form::getExGrade() const
 
 bool        Form::beSigned(Bureaucrat &bu)
 {
-    try
+    if (bu.getGrade() > this->_signGrade && !this->_signed)
     {
-        if (bu.getGrade() <= this->_signGrade && !this->_signed)
-        {
-            throw(Form::GradeTooLowException());
-            return 0;
-        }
-        else if (this->_signed)
-        {
-            throw(Form::AlreadySignedException());
-            return 0;
-        }
-        else
-        {
-            bu.signForm(*this);
-            this->_signed = 1;
-            return 1;
-        }
+        throw(Form::GradeTooLowException());
+        return 0;
     }
-    catch (Form::GradeTooLowException const &e)
+    else if (this->_signed)
     {
-        std::cout << e.what() << std::endl;
+        throw(Form::AlreadySignedException());
+        return 0;
     }
-    catch (Form::AlreadySignedException const &e)
+    else
     {
-        std::cout << e.what() << std::endl;
+        bu.signForm(*this);
+        this->_signed = 1;
+        return 1;
     }
+    return 0;
 }
 
 const char* Form::GradeTooHighException::what() const throw()
@@ -114,10 +105,10 @@ const char* Form::AlreadySignedException::what() const throw()
 
 std::ostream    &operator<<(std::ostream &o, Form const &rhs)
 {
-    o << "Form " << rhs.getName() << ", requiring grade " << rhs.getSignGrade() << " to be signed and level " << rhs.getExGrade << "to be executed.";
+    o << "Form " << rhs.getName() << ", requiring grade " << rhs.getSignGrade() << " to be signed and level " << rhs.getExGrade() << " to be executed.";
     if (rhs.getSigned())
-        o << "Has been signed already.";
+        o << " Has been signed already.";
     else
-        o << "Has not been signed yet.";
+        o << " Has not been signed yet.";
     return o;
 }
