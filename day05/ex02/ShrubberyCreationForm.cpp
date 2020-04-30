@@ -1,4 +1,5 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :
                     Form("Shruberry Creation Form", 145, 137)
@@ -25,4 +26,28 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     if (this != &rhs)
         this->_target = rhs._target;
     return *this;
+}
+
+bool    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+    if (executor.getGrade() > this->getExGrade() && this->getSigned())
+    {
+        throw(Form::GradeTooLowException());
+        return 0;
+    }
+    else if (!this->getSigned())
+    {
+        throw(Form::UnsignedFormException());
+        return 0;
+    }
+    else
+    {
+        this->createTree();
+        return 1;
+    }
+}
+
+void    ShrubberyCreationForm::createTree() const
+{
+    
 }

@@ -67,6 +67,12 @@ int         Form::getExGrade() const
     return this->_exGrade;
 }
 
+void        Form::setSigned(bool i)
+{
+    this->_signed = i;
+}
+
+
 bool        Form::beSigned(Bureaucrat &bu)
 {
     if (bu.getGrade() > this->_signGrade && !this->_signed)
@@ -106,7 +112,6 @@ const char* Form::UnsignedFormException::what() const throw()
 {
     return ("Error : File not signed");
 }
-
 
 std::ostream    &operator<<(std::ostream &o, Form const &rhs)
 {

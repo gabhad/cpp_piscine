@@ -100,6 +100,25 @@ void        Bureaucrat::signForm(Form &dest)
     }    
 }
 
+void        Bureaucrat::executeForm(Form &dest)
+{
+    try
+    {
+        if (dest.execute(*this))
+            std::cout << this->getName() << " executes form " << dest.getName() << "." << std::endl;
+    }
+    catch (Form::GradeTooLowException)
+    {
+        std::cout << this->_name << " cannot execute form " << dest.getName() << " because he does not have the required level." << std::endl;
+    }
+    catch (Form::UnsignedFormException)
+    {
+        std::cout << this->_name << " cannot execute form " << dest.getName() << " because the form has not been signed." << std::endl;
+    }    
+
+}
+
+
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return ("Error : Grade too high");
