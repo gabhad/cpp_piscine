@@ -42,7 +42,8 @@ void    MiningBarge::mine(IAsteroid* ast) const
 {
     for (size_t i = 0; i < 4; i++)
     {
-        this->_laser[i]->mine(ast);
+        if (this->_laser[i])
+            this->_laser[i]->mine(ast);
     }
 }
 
