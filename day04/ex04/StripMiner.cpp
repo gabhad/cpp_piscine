@@ -1,4 +1,7 @@
 #include "StripMiner.hpp"
+#include "IMiningLaser.hpp"
+#include "IAsteroid.hpp"
+#include <iostream>
 
 StripMiner::StripMiner()
 {

@@ -1,10 +1,6 @@
 #ifndef IMININGLASER_HPP
 # define IMININGLASER_HPP
 
-class IMiningLaser;
-
-#include "IAsteroid.hpp"
-
 class IMiningLaser
 {
     public:

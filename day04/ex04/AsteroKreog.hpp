@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include "IAsteroid.hpp"
-#include "DeepCoreMiner.hpp"
-#include "StripMiner.hpp"
+class DeepCoreMiner;
+class StripMiner;
 
 class AsteroKreog : public IAsteroid
 {

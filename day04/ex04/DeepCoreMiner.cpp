@@ -1,5 +1,5 @@
 #include "DeepCoreMiner.hpp"
-
+#include "IAsteroid.hpp"
 
 DeepCoreMiner::DeepCoreMiner()
 {

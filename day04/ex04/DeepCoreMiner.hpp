@@ -1,10 +1,10 @@
 #ifndef DEEPCOREMINER_HPP
 # define DEEPCOREMINER_HPP
 
-class DeepCoreMiner;
+class IAsteroid;
 
+#include <iostream>
 #include "IMiningLaser.hpp"
-#include "IAsteroid.hpp"
 
 class DeepCoreMiner : public IMiningLaser
 {

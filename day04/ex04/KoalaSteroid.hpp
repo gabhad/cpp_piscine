@@ -1,11 +1,10 @@
 #ifndef KOALASTEROID_HPP
 # define KOALASTEROID_HPP
 
+class DeepCoreMiner;
+class StripMiner;
 #include <iostream>
-
 #include "IAsteroid.hpp"
-#include "DeepCoreMiner.hpp"
-#include "StripMiner.hpp"
 
 class KoalaSteroid : public IAsteroid
 {

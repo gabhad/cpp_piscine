@@ -1,4 +1,6 @@
 #include "AsteroKreog.hpp"
+#include "DeepCoreMiner.hpp"
+#include "StripMiner.hpp"
 
 AsteroKreog::AsteroKreog() : _name("AsteroKreog")
 {

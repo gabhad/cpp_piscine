@@ -1,10 +1,10 @@
 #ifndef STRIPMINER_HPP
 # define STRIPMINER_HPP
 
-class StripMiner;
+class IMiningLaser;
+class IAsteroid;
 
 #include "IMiningLaser.hpp"
-#include "IAsteroid.hpp"
 
 class StripMiner : public IMiningLaser
 {

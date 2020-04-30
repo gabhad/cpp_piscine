@@ -1,4 +1,7 @@
 #include "MiningBarge.hpp"
+#include "IMiningLaser.hpp"
+#include "IAsteroid.hpp"
+#include <iostream>
 
 MiningBarge::MiningBarge()
 {
