@@ -1,5 +1,9 @@
 #include "Intern.hpp"
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include <iostream>
 
 Intern::Intern()
 {
@@ -22,7 +26,31 @@ Intern &Intern::operator=(const Intern & rhs)
 
 Form    *Intern::makeForm(std::string name, std::string target)
 {
-
+    std::string array[3] = {"presidential pardon", "shruberry creation", "robotomy request"};
+    Form *form;
+    try
+    {
+        if (name.compare(array[0])
+            && name.compare(array[1])
+            && name.compare(array[2]))
+            throw(Intern::UnknownFormException());
+        else
+        {
+            if (!name.compare(array[0]))
+                form = new PresidentialPardonForm(target);
+            else if (!name.compare(array[1]))
+                form = new ShrubberyCreationForm(target);
+            else
+                form = new RobotomyRequestForm(target);
+            std::cout << "Intern creates " << *form << std::endl;
+            return form;
+        }
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return NULL;
+    }
 }
 
 const char  *Intern::UnknownFormException::what() const throw()
