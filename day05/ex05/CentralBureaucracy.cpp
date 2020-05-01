@@ -61,6 +61,7 @@ void        CentralBureaucracy::doBureaucracy()
                 try
                 {
                     this->_offices[i]->doBureaucracy(form_type[rand()%3], this->_targetQueue[i]);
+                    std::cout << "ici" << std::endl;
                 }
                 catch(const std::exception& e)
                 {
