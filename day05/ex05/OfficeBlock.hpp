@@ -25,7 +25,9 @@ class OfficeBlock
         void    setSigner(Bureaucrat &);
         void    setExecutor(Bureaucrat &);
 
-        Intern  *getIntern(void) const;
+        Intern      *getIntern(void) const;
+        Bureaucrat  *getSigner(void) const;
+        Bureaucrat  *getExecutor(void) const;
 
         void    doBureaucracy(std::string name, std::string target);
 

@@ -1,6 +1,8 @@
 #ifndef CENTRALBUREAUCRACY_HPP
 # define CENTRALBUREAUCRACY_HPP
 
+#define TARGET_MAX_SIZE 25
+
 class OfficeBlock;
 class Bureaucrat;
 
@@ -10,8 +12,8 @@ class CentralBureaucracy
 {
     private:
         OfficeBlock *_offices[20];
-    //    Bureaucrat  *_waitingRoom[];
-    //    std::string _targetList[];
+        std::string _targetQueue[TARGET_MAX_SIZE];
+        int         _queuedTargets;
 
         CentralBureaucracy(const CentralBureaucracy &);
         CentralBureaucracy &operator=(const CentralBureaucracy &);
@@ -20,8 +22,15 @@ class CentralBureaucracy
         CentralBureaucracy();
         ~CentralBureaucracy();
 
-        void    queueUp(std::string &);
-        void    doBureaucracy();
+        void        feedBureaucrat(Bureaucrat &);
+        void        queueUp(std::string &);
+        void        doBureaucracy();
+
+        class TargetQueueFullException : public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 #endif

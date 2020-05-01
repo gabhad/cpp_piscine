@@ -30,6 +30,16 @@ Intern  *OfficeBlock::getIntern() const
     return this->_intern;
 }
 
+Bureaucrat  *OfficeBlock::getSigner(void) const
+{
+    return this->_signBureau;
+}
+
+Bureaucrat  *OfficeBlock::getExecutor(void) const
+{
+    return this->_execBureau;
+}
+
 void    OfficeBlock::doBureaucracy(std::string name, std::string target)
 {
     Form *form;
