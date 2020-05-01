@@ -9,9 +9,6 @@
 int main()
 {
     CentralBureaucracy cb;
-    for (size_t i = 0; i < 20; i++)
-    {
-        /* code */
-    }
-    
+
+    (void)cb;
 }

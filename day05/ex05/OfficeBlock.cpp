@@ -25,6 +25,11 @@ void    OfficeBlock::setExecutor(Bureaucrat &bur)
     this->_execBureau = &bur;
 }
 
+Intern  *OfficeBlock::getIntern() const
+{
+    return this->_intern;
+}
+
 void    OfficeBlock::doBureaucracy(std::string name, std::string target)
 {
     Form *form;

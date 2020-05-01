@@ -25,6 +25,8 @@ class OfficeBlock
         void    setSigner(Bureaucrat &);
         void    setExecutor(Bureaucrat &);
 
+        Intern  *getIntern(void) const;
+
         void    doBureaucracy(std::string name, std::string target);
 
         class IncompleteOfficeException : public std::exception

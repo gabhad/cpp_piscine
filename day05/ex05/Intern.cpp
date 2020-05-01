@@ -5,18 +5,11 @@
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
 
-Intern::Intern()
-{
-}
+Intern::Intern() {}
 
-Intern::Intern(const Intern & src)
-{
-    *this = src;
-}
+Intern::Intern(const Intern & src) { *this = src; }
 
-Intern::~Intern()
-{
-}
+Intern::~Intern() {}
 
 Intern &Intern::operator=(const Intern & rhs)
 {

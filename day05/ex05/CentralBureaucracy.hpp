@@ -10,8 +10,8 @@ class CentralBureaucracy
 {
     private:
         OfficeBlock *_offices[20];
-        Bureaucrat  *_waitingRoom[];
-        std::string _targetList[];
+    //    Bureaucrat  *_waitingRoom[];
+    //    std::string _targetList[];
 
         CentralBureaucracy(const CentralBureaucracy &);
         CentralBureaucracy &operator=(const CentralBureaucracy &);
