@@ -28,6 +28,12 @@ int main()
     for (int i = 0; i < 20; i++)
         pushBureaucrat(cb);
     for (int i = 0; i < 20; i++)
-        cb.queueUp(rand_string(8));
+    {   
+        std::string target(rand_string(8));
+        cb.queueUp(target);
+    }
     cb.doBureaucracy();
+    
+    while (1)
+        ;
 }

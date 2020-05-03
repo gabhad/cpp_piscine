@@ -18,7 +18,14 @@ CentralBureaucracy::CentralBureaucracy()
 CentralBureaucracy::~CentralBureaucracy()
 {
     for (int i = 0; i < 20; i++)
+    {
         delete this->_offices[i]->getIntern();
+        if (this->_offices[i]->getSigner())
+            delete this->_offices[i]->getSigner();
+        if (this->_offices[i]->getExecutor())
+            delete this->_offices[i]->getExecutor();
+        delete this->_offices[i];
+    }
 }
 
 void        CentralBureaucracy::feedBureaucrat(Bureaucrat &bu)
@@ -61,17 +68,16 @@ void        CentralBureaucracy::doBureaucracy()
                 try
                 {
                     this->_offices[i]->doBureaucracy(form_type[rand()%3], this->_targetQueue[i]);
-                    std::cout << "ici" << std::endl;
                 }
                 catch(const std::exception& e)
                 {
-                    std::cerr << e.what() << '\n';
+                    std::cerr << e.what() << std::endl;
                 }
             }                
         }
         catch(const std::exception& e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
 }
