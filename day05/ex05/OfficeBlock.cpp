@@ -43,51 +43,44 @@ Bureaucrat  *OfficeBlock::getExecutor(void) const
 void    OfficeBlock::doBureaucracy(std::string name, std::string target)
 {
     Form *form;
-    try
+    if (!this->_intern || !this->_signBureau || !this->_execBureau)
     {
-        if (!this->_intern || !this->_signBureau || !this->_execBureau)
+        throw (OfficeBlock::IncompleteOfficeException());
+        return ;
+    }
+    else
+    {            
+        try
         {
-            throw (OfficeBlock::IncompleteOfficeException());
-            return ;
+            form = this->_intern->makeForm(name, target);
         }
-        else
-        {            
-            try
-            {
-                form = this->_intern->makeForm(name, target);
-            }
-            catch(const Intern::UnknownFormException & e)
-            {
-                std::cerr << "Error : Your intern does not know this form. The office resume their card game." << std::endl;
-                return;
-            }
-            try
-            {
-                this->_signBureau->signForm(*form);
-            }
-            catch(const Form::GradeTooLowException& e)
-            {
-                std::cerr << "Error : Your bureaucrat is not allowed to sign this form. The office resume their card game." << std::endl;
-                delete form;
-                return;
-            }
-            try
-            {
-                this->_execBureau->executeForm(*form);
-            }
-            catch(const Form::GradeTooLowException& e)
-            {
-                std::cerr << "Error : Your bureaucrat is not allowed to execute this form. The office resume their card game." << std::endl;
-                delete form;
-                return;
-            }
+        catch(const Intern::UnknownFormException & e)
+        {
+            std::cerr << "Error : Your intern does not know this form. The office resume their card game." << std::endl;
+            return;
         }
-        delete form;
+        try
+        {
+            this->_signBureau->signForm(*form);
+        }
+        catch(const Form::GradeTooLowException& e)
+        {
+            std::cerr << "Error : Your bureaucrat is not allowed to sign this form. The office resume their card game." << std::endl;
+            delete form;
+            return;
+        }
+        try
+        {
+            this->_execBureau->executeForm(*form);
+        }
+        catch(const Form::GradeTooLowException& e)
+        {
+            std::cerr << "Error : Your bureaucrat is not allowed to execute this form. The office resume their card game." << std::endl;
+            delete form;
+            return;
+        }
     }
-    catch(const OfficeBlock::IncompleteOfficeException & e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    delete form;
 }
 
 const char  *OfficeBlock::IncompleteOfficeException::what() const throw()

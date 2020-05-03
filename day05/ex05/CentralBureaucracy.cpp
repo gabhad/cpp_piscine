@@ -69,6 +69,11 @@ void        CentralBureaucracy::doBureaucracy()
                 {
                     this->_offices[i]->doBureaucracy(form_type[rand()%3], this->_targetQueue[i]);
                 }
+                catch(const OfficeBlock::IncompleteOfficeException &e)
+                {
+                    std::cout << "Error : incomplete office. Nothing happens." << std::endl;
+                    return ;
+                }
                 catch(const std::exception& e)
                 {
                     std::cerr << e.what() << std::endl;

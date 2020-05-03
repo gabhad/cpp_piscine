@@ -33,7 +33,4 @@ int main()
         cb.queueUp(target);
     }
     cb.doBureaucracy();
-    
-    while (1)
-        ;
-}
+ }
