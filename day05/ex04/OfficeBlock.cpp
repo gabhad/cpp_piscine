@@ -52,7 +52,8 @@ void    OfficeBlock::doBureaucracy(std::string name, std::string target)
             }
             catch(const Form::GradeTooLowException& e)
             {
-                std::cerr << "Error : Your bureaucrat is not allowed to sign this form. The office resume their card game." << std::endl;
+                std::cerr << "Error : Your bureaucrat is not allowed to sign this form. The office resume their card game." << std::endl; 
+                delete form;
                 return;
             }
             try
@@ -62,9 +63,11 @@ void    OfficeBlock::doBureaucracy(std::string name, std::string target)
             catch(const Form::GradeTooLowException& e)
             {
                 std::cerr << "Error : Your bureaucrat is not allowed to execute this form. The office resume their card game." << std::endl;
+                delete form;
                 return;
             }
         }
+        delete form;
     }
     catch(const OfficeBlock::IncompleteOfficeException & e)
     {
