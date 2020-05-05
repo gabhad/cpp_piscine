@@ -3,8 +3,7 @@ NAME =			convert
 CC =			clang++
 CFLAGS =		-Wall -Wextra -Werror
 
-SRC_NAME =		main.cpp \
-				Convert.cpp\
+SRC_NAME =		main.cpp
 
 OBJ_NAME =		$(SRC_NAME:.cpp=.o)
 
