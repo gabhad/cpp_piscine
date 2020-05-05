@@ -4,4 +4,5 @@
 int main()
 {
     Array *array = new Array;
+    (void)array;
 }
