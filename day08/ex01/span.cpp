@@ -35,14 +35,17 @@ int     Span::shortestSpan()
 {
     if (_elements.size < 2)
         throw Span::NoSpanToBeFoundException();
-
+    // use sort to rearrange
+    // calculate the difference between each element, and store the minimum.
+    // return final minimum
 }
 
 int     Span::longestSpan()
 {
     if (_elements.size < 2)
         throw Span::NoSpanToBeFoundException();
-
+    // use min and max 
+    // 
 }
 
 const char* Span::StockageOverloadException::what() const throw()
