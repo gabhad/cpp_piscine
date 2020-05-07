@@ -4,35 +4,24 @@
 #include <stack>
 
 template <typename T>
-class MutantStack
+class MutantStack : public std::stack<T>
 {
-    private:
-        std::stack<T>   _stack;
     public:
-        MutantStack();
-        MutantStack(const MutantStack &);
-        ~MutantStack();
-        MutantStack &operator=(const MutantStack &);
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
-        void    push(T);
-        void    pop();
-        T       top();
-        int     size(void);
-
-        class iterator
+        MutantStack() : std::stack<T>() {};
+        MutantStack(const MutantStack &src) : std::stack<T>::stack(src) { *this = src; }
+        virtual ~MutantStack() {};
+        MutantStack &operator=(const MutantStack &rhs)
         {
-            public:
-                iterator();
-                iterator(const iterator &);
-                ~iterator();
-                iterator &operator=(const iterator &);
+            std::stack<T>::operator=(rhs);
+            return *this;
+        };
 
-                // surcharge ++
-                // surcharge --
-                //surcharge ==
-                // surcharge !=
+        iterator    begin() { return std::stack<T>::c.begin(); };
+        iterator    end() { return std::stack<T>::c.end(); };
 
-        }
+
 };
 
 #endif

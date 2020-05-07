@@ -1,22 +1,5 @@
-#include "mutantstack.hpp"
+/* 
 
-MutantStack::MutantStack(/*args*/)
-{
-}
+cf template header
 
-MutantStack::MutantStack()
-{
-}
-
-MutantStack::MutantStack(const MutantStack & src)
-{
-}
-
-MutantStack::~MutantStack()
-{
-}
-
-MutantStack &MutantStack::operator=(const MutantStack & rhs)
-{
-}
-
+*/
