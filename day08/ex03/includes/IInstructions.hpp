@@ -1,13 +1,13 @@
 #ifndef IINSTRUCTIONS_HPP
 # define IINSTRUCTIONS_HPP
 
-#include <vector>
+class Mindopen;
 
 class IInstructions
 {
     public:
         virtual         ~IInstructions() {};
-        virtual void    execute(std::vector<char>) = 0;
+        virtual void    execute(Mindopen&) = 0;
 };
 
 #endif

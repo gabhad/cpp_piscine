@@ -34,3 +34,49 @@ void    Mindopen::addElem(char)
     this->_prog.push_back(c);
 }
 
+void    Mindopen::incrementPointer(void)
+{
+    *this->_it++;
+}
+void    Mindopen::decrementPointer(void)
+{
+    *this->_it--;
+}
+void    Mindopen::moveInstructionIteratorLeft(void)
+{
+    this->_instructionIterator--;
+}
+void    Mindopen::moveInstructionIteratorRight(void)
+{
+    this->_instructionIterator++;
+}
+void    Mindopen::movePointerLeft(void)
+{
+    this->_it++;
+    if (this->_it == this->_prog.end())
+        this->_prog.push_back(0);
+}
+void    Mindopen::movePointerRight(void)
+{
+    if (this->_it == this->_prog.begin())
+        this->_prog.push_front(0);
+    this->_it--;
+}
+
+std::list<IInstructions>            Mindopen::getInst() const
+{
+    return this->_inst;
+}
+std::list<IInstructions>::iterator  Mindopen::getInstructionIterator() const
+{
+    return this->_instructionIterator;
+}
+std::list<char>                     Mindopen::getProg() const
+{
+    return this->_prog;
+}
+std::list<char>::iterator           Mindopen::getIt() const
+{
+    return this->_it;
+}
+
