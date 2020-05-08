@@ -6,8 +6,6 @@
 
 class IInstructions;
 
-void    readFromFile(std::string filename);
-
 class Mindopen
 {
     private:
@@ -39,6 +37,20 @@ class Mindopen
         std::list<char>::iterator           getIt() const;
 
         void    setIterator(char c);
+        void    initializeIterators(void);
+        bool    isInstructionEnd(void);
+        void    readOutput(void);
 };
+
+void    readFromFile(std::string);
+void    createMoveLeft(Mindopen&);
+void    createMoveRight(Mindopen&);
+void    createIncrement(Mindopen&);
+void    createDecrement(Mindopen&);
+void    createInput(Mindopen&);
+void    createOutput(Mindopen&);
+void    createJumpRight(Mindopen&);
+void    createJumpLeft(Mindopen&);
+void    executeInstructions(Mindopen&);
 
 #endif

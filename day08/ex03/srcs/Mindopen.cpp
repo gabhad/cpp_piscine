@@ -93,3 +93,22 @@ void    Mindopen::setIterator(char c)
 {
     *this->_it = c;
 }
+
+void    Mindopen::initializeIterators()
+{
+    this->_prog.push_back(0);
+    this->_it = this->_prog.begin();
+    this->_instructionIterator = this->_inst.begin();
+}
+
+bool    Mindopen::isInstructionEnd()
+{
+    if (this->_instructionIterator == this->_inst.end())
+        return 1;
+    return 0;
+}
+
+void    Mindopen::readOutput()
+{
+    std::cout << this->_output << std::endl;
+}
