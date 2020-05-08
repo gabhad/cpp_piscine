@@ -19,13 +19,17 @@ Mindopen &Mindopen::operator=(const Mindopen & rhs)
     if (this != &rhs)
     {
         this->_inst = rhs._inst;
+        this->_instructionIterator = rhs._instructionIterator;
         this->_prog = rhs._prog;
+        this->_it = rhs._it;
+        this->_output = rhs._output;
     }
+    return *this;
 }
 
 void    Mindopen::addInstruction(IInstructions &inst)
 {
-    this->_inst.push_back(inst);
+    this->_inst.push_back(&inst);
 }
 
 void    Mindopen::addElem(char)
@@ -68,11 +72,11 @@ void    Mindopen::addChar(char c)
     this->_output += c;
 }
 
-std::list<IInstructions>            Mindopen::getInst() const
+std::list<IInstructions*>            Mindopen::getInst() const
 {
     return this->_inst;
 }
-std::list<IInstructions>::iterator  Mindopen::getInstructionIterator() const
+std::list<IInstructions*>::iterator  Mindopen::getInstructionIterator() const
 {
     return this->_instructionIterator;
 }
