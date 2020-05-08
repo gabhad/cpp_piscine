@@ -8,6 +8,7 @@ InstInput::InstInput()
 
 InstInput::InstInput(const InstInput & src)
 {
+    *this = src;
 }
 
 InstInput::~InstInput()
@@ -16,6 +17,7 @@ InstInput::~InstInput()
 
 InstInput &InstInput::operator=(const InstInput & rhs)
 {
+    return *this;
 }
 
 void    InstInput::execute(Mindopen &prog)
