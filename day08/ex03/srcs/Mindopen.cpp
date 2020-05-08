@@ -63,6 +63,11 @@ void    Mindopen::movePointerRight(void)
     this->_it--;
 }
 
+void    Mindopen::addChar(char c)
+{
+    this->_output += c;
+}
+
 std::list<IInstructions>            Mindopen::getInst() const
 {
     return this->_inst;
@@ -80,3 +85,7 @@ std::list<char>::iterator           Mindopen::getIt() const
     return this->_it;
 }
 
+void    Mindopen::setIterator(char c)
+{
+    *this->_it = c;
+}
