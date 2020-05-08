@@ -32,7 +32,8 @@ void    InstJumpRight::execute(Mindopen &prog)
         prog.moveInstructionIteratorRight();
         try
         {
-            InstJumpLeft &temp = dynamic_cast<InstJumpLeft&>(*prog.getInstructionIterator());
+            std::list<IInstructions*>::iterator it = prog.getInstructionIterator();
+            InstJumpLeft &temp = dynamic_cast<InstJumpLeft&>(**it);
             (void)temp;
             i--;
         }
@@ -40,7 +41,8 @@ void    InstJumpRight::execute(Mindopen &prog)
         {
             try
             {
-                InstJumpRight &tempbis = dynamic_cast<InstJumpRight&>(*prog.getInstructionIterator());
+                std::list<IInstructions*>::iterator it2 = prog.getInstructionIterator();
+                InstJumpRight &tempbis = dynamic_cast<InstJumpRight&>(**it2);
                 (void)tempbis;
                 i++;
             }

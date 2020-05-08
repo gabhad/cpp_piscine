@@ -34,7 +34,7 @@ class Mindopen
 
         // Getters
         std::list<IInstructions>            getInst() const;
-        std::list<IInstructions>::iterator  getInstructionIterator() const;
+        std::list<IInstructions*>::iterator getInstructionIterator() const;
         std::list<char>                     getProg() const;
         std::list<char>::iterator           getIt() const;
 
