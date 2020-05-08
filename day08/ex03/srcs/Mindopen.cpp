@@ -12,6 +12,15 @@ Mindopen::Mindopen(const Mindopen & src)
 
 Mindopen::~Mindopen()
 {
+    std::list<IInstructions*>::iterator it = this->_inst.begin();
+    std::list<IInstructions*>::iterator it2 = it;
+    std::advance(it2,1);
+    while (it != this->_inst.end())
+    {
+        delete *it;
+        it = it2;
+        std::advance(it2,1);
+    }
 }
 
 Mindopen &Mindopen::operator=(const Mindopen & rhs)
@@ -27,24 +36,23 @@ Mindopen &Mindopen::operator=(const Mindopen & rhs)
     return *this;
 }
 
-void    Mindopen::addInstruction(IInstructions &inst)
+void    Mindopen::addInstruction(IInstructions *inst)
 {
-    this->_inst.push_back(&inst);
+    this->_inst.push_back(inst);
 }
 
-void    Mindopen::addElem(char)
+void    Mindopen::addElem(void)
 {
-    char c = 0;
-    this->_prog.push_back(c);
+    this->_prog.push_back(0);
 }
 
 void    Mindopen::incrementPointer(void)
 {
-    *this->_it++;
+    *this->_it = *this->_it + 1;
 }
 void    Mindopen::decrementPointer(void)
 {
-    *this->_it--;
+    *this->_it = *this->_it - 1;
 }
 void    Mindopen::moveInstructionIteratorLeft(void)
 {
@@ -56,15 +64,17 @@ void    Mindopen::moveInstructionIteratorRight(void)
 }
 void    Mindopen::movePointerLeft(void)
 {
-    this->_it++;
-    if (this->_it == this->_prog.end())
-        this->_prog.push_back(0);
-}
-void    Mindopen::movePointerRight(void)
-{
     if (this->_it == this->_prog.begin())
         this->_prog.push_front(0);
     this->_it--;
+}
+void    Mindopen::movePointerRight(void)
+{
+    std::list<char>::iterator it2 = this->_it;
+    it2++;
+    if (it2 == this->_prog.end())
+        this->_prog.push_back(0);
+    this->_it++;
 }
 
 void    Mindopen::addChar(char c)
@@ -88,6 +98,10 @@ std::list<char>::iterator           Mindopen::getIt() const
 {
     return this->_it;
 }
+char    Mindopen::getChar()
+{
+    return *this->_it;
+}
 
 void    Mindopen::setIterator(char c)
 {
@@ -110,5 +124,6 @@ bool    Mindopen::isInstructionEnd()
 
 void    Mindopen::readOutput()
 {
-    std::cout << this->_output << std::endl;
+    std::cout << this->_output;
 }
+

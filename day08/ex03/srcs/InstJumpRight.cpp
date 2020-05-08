@@ -24,8 +24,10 @@ InstJumpRight &InstJumpRight::operator=(const InstJumpRight & rhs)
 
 void    InstJumpRight::execute(Mindopen &prog)
 {
-    if (*prog.getIt() != 0)
+    if (prog.getChar() != 0)
+    {
         return;
+    }
     int i = 1;
     while (i > 0)
     {

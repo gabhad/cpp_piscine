@@ -23,7 +23,7 @@ InstJumpLeft &InstJumpLeft::operator=(const InstJumpLeft & rhs)
 
 void    InstJumpLeft::execute(Mindopen &prog)
 {
-    if (*prog.getIt() == 0)
+    if (!prog.getChar())
         return;
     int i = 1;
     while (i > 0)

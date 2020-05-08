@@ -23,5 +23,5 @@ InstOutput &InstOutput::operator=(const InstOutput & rhs)
 
 void    InstOutput::execute(Mindopen &prog)
 {
-    prog.addChar(*prog.getIt());
+    prog.addChar(prog.getChar());
 }

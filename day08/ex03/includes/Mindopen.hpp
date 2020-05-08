@@ -20,8 +20,8 @@ class Mindopen
         ~Mindopen();
         Mindopen &operator=(const Mindopen &);
 
-        void    addInstruction(IInstructions&);
-        void    addElem(char);
+        void    addInstruction(IInstructions*);
+        void    addElem(void);
         void    incrementPointer(void);
         void    decrementPointer(void);
         void    moveInstructionIteratorLeft(void);
@@ -35,6 +35,7 @@ class Mindopen
         std::list<IInstructions*>::iterator getInstructionIterator() const;
         std::list<char>                     getProg() const;
         std::list<char>::iterator           getIt() const;
+        char                                getChar();
 
         void    setIterator(char c);
         void    initializeIterators(void);
