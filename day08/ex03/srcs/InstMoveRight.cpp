@@ -16,6 +16,7 @@ InstMoveRight::~InstMoveRight()
 
 InstMoveRight &InstMoveRight::operator=(const InstMoveRight & rhs)
 {
+    (void) rhs;
     return *this;
 }
 

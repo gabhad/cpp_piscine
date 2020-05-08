@@ -17,6 +17,7 @@ InstInput::~InstInput()
 
 InstInput &InstInput::operator=(const InstInput & rhs)
 {
+    (void) rhs;
     return *this;
 }
 

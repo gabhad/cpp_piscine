@@ -16,6 +16,7 @@ InstIncrement::~InstIncrement()
 
 InstIncrement &InstIncrement::operator=(const InstIncrement & rhs)
 {
+    (void) rhs;
     return *this;
 }
 

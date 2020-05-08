@@ -17,6 +17,7 @@ InstOutput::~InstOutput()
 
 InstOutput &InstOutput::operator=(const InstOutput & rhs)
 {
+    (void) rhs;
     return *this;
 }
 

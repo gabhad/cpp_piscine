@@ -16,6 +16,7 @@ InstDecrement::~InstDecrement()
 
 InstDecrement &InstDecrement::operator=(const InstDecrement & rhs)
 {
+    (void) rhs;
     return *this;
 }
 

@@ -17,6 +17,7 @@ InstJumpLeft::~InstJumpLeft()
 
 InstJumpLeft &InstJumpLeft::operator=(const InstJumpLeft & rhs)
 {
+    (void) rhs;
     return *this;
 }
 
