@@ -41,6 +41,7 @@ class Mindopen
         void    initializeIterators(void);
         bool    isInstructionEnd(void);
         void    readOutput(void);
+        void    resetOutput(void);
 };
 
 void    readFromFile(std::string);

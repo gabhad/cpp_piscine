@@ -127,3 +127,7 @@ void    Mindopen::readOutput()
     std::cout << this->_output;
 }
 
+void    Mindopen::resetOutput()
+{
+    this->_output = "";
+}
